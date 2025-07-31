@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mojid/views/components/custom_text/custom_text.dart';
+import 'package:get/get.dart';
 
+import '../../../core/app_routes/app_routes.dart';
 import '../../../utils/app_images/app_images.dart';
 import '../../../utils/app_strings/app_strings.dart';
+import '../../components/custom_button/custom_button.dart';
 import '../../components/custom_image/custom_image.dart';
+import '../../components/custom_text/custom_text.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -62,6 +65,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     onTap: () {
                       setState(() {
                         _selectedIndex = index;
+                        Get.toNamed(AppRoutes.loginScreen);
                       });
                     },
                   ),
@@ -70,44 +74,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
               const Spacer(),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onTap;
-  final bool selected;
-
-  const CustomButton({
-    Key? key,
-    required this.text,
-    required this.onTap,
-    this.selected = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final fillColor = const Color(0xFF7B5E2E);
-    return SizedBox(
-      height: 46.h,
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: selected ? fillColor : Colors.white,
-          side: BorderSide(color: fillColor, width: 1.2),
-          elevation: 0,
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: selected ? Colors.white : fillColor,
-            fontWeight: FontWeight.w600,
-            fontSize: 16.sp,
           ),
         ),
       ),

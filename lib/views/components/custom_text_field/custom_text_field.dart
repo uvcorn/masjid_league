@@ -1,70 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../utils/app_strings/app_strings.dart';
+import '../../../utils/app_colors/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
+  final String hintText;
   final TextEditingController controller;
-  final String labelText;
-  final TextInputType? keyboardType;
+  final IconData icon;
+
+  final Color iconColor;
+  final bool isPassword;
   final bool obscureText;
-  final VoidCallback? onToggleObscureText;
-  final bool enableValidation; // For password validation
-  final TextEditingController?
-  confirmPasswordController; // For confirm password
+  final VoidCallback? togglePassword;
 
   const CustomTextField({
     super.key,
+    required this.hintText,
     required this.controller,
-    required this.labelText,
-    this.keyboardType,
+    required this.icon,
+    this.isPassword = false,
     this.obscureText = false,
-    this.onToggleObscureText,
-    this.enableValidation = false,
-    this.confirmPasswordController,
+    this.togglePassword,
+    this.iconColor = AppColors.mediumGray,
   });
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    return Padding(
-      padding: const EdgeInsets.only(left: 16),
-      child: TextFormField(
-        controller: controller,
-        keyboardType: keyboardType,
-        obscureText: obscureText,
-        validator: enableValidation ? _passwordValidator : null,
-        decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: textTheme.labelSmall,
-          border: InputBorder.none,
-          suffixIcon: onToggleObscureText != null
-              ? IconButton(
-                  icon: Icon(
-                    obscureText ? Icons.visibility_off : Icons.visibility,
-                    color: Colors.grey,
-                  ),
-                  onPressed: onToggleObscureText,
-                )
-              : null,
-        ),
+    return TextField(
+      controller: controller,
+      obscureText: isPassword && obscureText,
+      decoration: InputDecoration(
+        prefixIcon: Icon(icon, color: iconColor),
+        suffixIcon: isPassword
+            ? IconButton(
+                icon: Icon(
+                  obscureText ? Icons.visibility_off : Icons.visibility,
+                  color: iconColor,
+                ),
+                onPressed: togglePassword,
+              )
+            : null,
+        hintText: hintText,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
       ),
     );
-  }
-
-  /// Password Validator (6-8 chars) & Confirm Password Validator
-  String? _passwordValidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return AppStrings.passwordRequired;
-    } else if (value.length < 6 || value.length > 8) {
-      return AppStrings.passwordLength;
-    }
-
-    if (confirmPasswordController != null) {
-      if (value != confirmPasswordController!.text) {
-        return AppStrings.passwordMismatch;
-      }
-    }
-
-    return null;
   }
 }
