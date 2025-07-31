@@ -13,12 +13,11 @@ class CustomText extends StatelessWidget {
     this.bottom = 0,
     this.fontSize = 12,
     this.fontWeight = FontWeight.w300,
-    this.color = Colors.amber,
+    this.color = Colors.black,
     required this.text,
     this.overflow = TextOverflow.ellipsis,
     this.decoration,
-
-    // this.decoration = TextDecoration.none,
+    this.fontFamily,
   });
 
   final double left;
@@ -33,19 +32,26 @@ class CustomText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow overflow;
   final TextDecoration? decoration;
-
+  final String? fontFamily;
   @override
   Widget build(BuildContext context) {
+    final String actualFontFamily = fontFamily ?? 'Roboto';
+
     return Padding(
-      padding:
-          EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
+      padding: EdgeInsets.only(
+        left: left,
+        right: right,
+        top: top,
+        bottom: bottom,
+      ),
       child: Text(
         textAlign: textAlign,
         text,
         maxLines: maxLines,
         overflow: overflow,
-        style: GoogleFonts.poppins(
-          fontSize: fontSize.w,
+        style: GoogleFonts.getFont(
+          actualFontFamily,
+          fontSize: fontSize.sp,
           fontWeight: fontWeight,
           color: color,
           decoration: decoration,

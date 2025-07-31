@@ -1,10 +1,22 @@
 class AppStrings {
-  static const String appTitle = "Wild Curiosity";
-  static const String welcomeMessage = 'Welcome to \nWild Curiosity';
-  //Authintication Strings
-  static const String welcomeHere = 'Welcome here!';
-  static const String createAccount = 'Create an account.';
-  static const String fillInformation = 'Fill in your information.';
+  static const String appTitle = "MASJID LEAGUE";
+  //===================Onbording and splash==============
+  static const String title1 = "EMPOWERING YOUTHS THROUGH FAITH AND SPORT";
+  static const String title2 = "BUILDING CHARACTER THROUGH FAITH AND TEAMWORK";
+  static const String title3 = "CHASING DREAMS, GUIDED BY FAITH";
+  static const String description1 =
+      "Masjid League was established to bring together youth from different mosques, promote healthy competition, and strengthen community bonds through sports and faith.";
+  static const String description2 =
+      "It provides a structured environment where young Muslim men can develop teamwork, leadership, and life skills while being connected to their faith.";
+  static const String description3 =
+      "Unlock professional pathways through football by showcasing your talent to top Saudi football scouts who attend our leagues.";
+  static const String spectator = 'Spectator';
+  static const String player = 'Player';
+  static const String manager = 'Manager';
+  static const String administrator = 'Administrator';
+  static const String welcomeToMasjidLeague = 'WELCOME TO MASJID LEAGUE!';
+  static const String joinAs = 'Join As';
+  // static const String agreeWith = 'Agree with ';
 
   static const String firstName = 'First Name';
   static const String lastName = 'Last Name';
@@ -12,6 +24,7 @@ class AppStrings {
   static const String password = 'Password';
   static const String confirmPassword = 'Confirm Password';
 
+  static const String welcomeMessage = 'Welcome Back';
   static const String agreeWith = 'Agree with ';
   static const String termsAndConditions = 'Terms and Conditions.';
 
@@ -76,94 +89,15 @@ class AppStrings {
   static const String step3Description =
       'Become a power influencer by hosting \nyour own workshops. The more you share \nvaluable tips, the more eco-friendly future';
   static const String nextButton = 'Next';
+  static const String getStartedButton = 'Get Started';
   static const String backButton = 'Back';
   static const String finishButton = 'Finish';
-
-  // Onboarding (Third Screen) Steps
-  static const String onboardingStep1Title = 'Build dialog \nwith people';
-  static const String onboardingStep1Body =
-      'Post your lifestyle, ask questions, \nand celebrate the small win toward \na healthy planet';
-
-  static const String onboardingStep2Title = 'Join group \nactivities';
-  static const String onboardingStep2Body =
-      'Want to learn how to eat healthy, \ndrive eco-friendly, and grow a \nbeautiful garden in your backyard? \nLet’s do it together';
-
-  static const String onboardingStep3Title = 'Share your \nknowledge';
-  static const String onboardingStep3Body =
-      'Become a power influencer by \nhosting your own workshops. The \nmore you share valuable tips, the \nhealthier future';
-
-  static const String unfollowButton = 'Unfollow';
-  static const String hideButton = 'Hide';
-  static const String clipButton = 'Clip';
-  static const String followButton = 'Follow';
-
-  //link preview
-  static const String notLoad = 'Could not load preview';
-  static const String invalidUrl = 'Invalid URL';
-  static const String failedLoad = 'Failed to load link preview';
-  //comment sheet
-  static const String comments = 'Comments';
-  static const String commentButton = 'Comment';
-  static const String replybutton = 'Reply';
-  static const String userName = 'Tony Lens';
-  static const String userTitle = 'Meal prep & workouts';
-  static const String commentTex =
-      'I\'ve got some left red wine in my fridge, does anyone know how to recycle it?';
-  static const String addComment = 'Add Comment.....';
-  //Replanet
-  static const String rePlanet = 'Replant this post';
-  static const String pentext = 'Replant with your thoughts';
-  static const String typeSome = "Type something";
-  static const String replantThisPost = "Replant this post";
-  static const String replantSnackbar = 'You replanted this post';
-  //Share menu
-  static const String sharetitle = "Share to";
-  static const String linkedin = "Linkedin";
-  static const String twitter = "Twitter";
-  static const String facebook = "Facebook";
-  static const String whatsapp = "Whatsapp";
-  //Chat message
-  static const String message = "Message";
-  static const String searchforMessage = "Search for message";
-  static const String newMessage = "New message";
-  static const String to = "TO: ";
-  static const String searchHint = "Search...";
-  static const String suggested = "Suggested";
-  static const String chatButton = "Chat";
-  static const String groupChatButton = "Group Chat";
-  static const String blockUser = "Block User";
-  static const String typeYourMessage = "Type Your Message...";
-  //Profile screen
-  static const String num = "45";
-  static const String post = "Post";
-  static const String followers = "Followers";
-  static const String following = "Following";
-  static const String userBio =
-      "Imperfect environmentalism, data-forward slow fashion, & up cycling \n📍 London \n♻️ @remadebymen \npartnerships - dianablog@gmail.com";
-  static const String goal = "Goal";
-  static const String userGoal = "Seriously making sustainability fun ";
-  static const String interest = "Interest";
-  static const String attendw = "Attended workshops";
-  static const String hostingTitle = "You are currently hosting";
-  static const String joiningTitle = "You are currently joining";
-  static const String basicUser = "Available to premium users";
-  static const String historyBarTitle = "Your climate history";
-  static const String viewall = "View all";
-  static const String open = "Open";
-  static const String demotime = "FRI, 23 May, 19:30 BST";
-  static const String timeDuration = "6 May - 27 May";
-  static const String workshopTime = "4 week workshops";
-  static const String workshopTitle =
-      "Switch to a climate-healthy diet with a professional nutritionist";
-  static const String attendTitle = "Buy groceries sustainably";
-  //followers / following screen
-  static const String followings72 = '72 Following';
-  static const String followers64 = '64 Followers';
 
   //bottom nav
   static const String home = 'Home';
   static const String group = 'Group';
   static const String notific = 'Noti';
+  static const String post = "Post";
   static const String profile = 'Profile';
 
   // static const String profile = 'Profile';

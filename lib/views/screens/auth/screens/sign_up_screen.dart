@@ -34,17 +34,17 @@ class SignUpScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(AppStrings.welcomeHere, style: textTheme.titleLarge),
-                      Text(
-                        AppStrings.createAccount,
-                        style: textTheme.titleLarge,
-                      ),
-                      SizedBox(height: size.height * 0.01),
-                      Text(
-                        AppStrings.fillInformation,
-                        style: textTheme.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
+                      // Text(AppStrings.welcomeHere, style: textTheme.titleLarge),
+                      // Text(
+                      //   AppStrings.createAccount,
+                      //   style: textTheme.titleLarge,
+                      // ),
+                      // SizedBox(height: size.height * 0.01),
+                      // Text(
+                      //   AppStrings.fillInformation,
+                      //   style: textTheme.bodyLarge,
+                      //   textAlign: TextAlign.center,
+                      // ),
                     ],
                   ),
                   SizedBox(height: size.height * 0.04),

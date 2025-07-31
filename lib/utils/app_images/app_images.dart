@@ -3,10 +3,12 @@ class AppImages {
 
   ///====================== onboard =========================
 
-  static const String logo = "$basePath/logo.svg";
-  static const String whitelogo = "$basePath/white_logo.svg";
+  static const String logo = "$basePath/logo.png";
+  static const String footballMatch1 = "$basePath/football_match1.png";
+  static const String footballMatch2 = "$basePath/football_match2.png";
+  static const String cornerDecorationSvg = "$basePath/diagonal_lines.svg";
+
+  static const String tournament1 = "$basePath/tournament1.png";
 
   ///====================== Inner =========================
-
-  static const String carditcard = "$basePath/carditcard.png";
 }
