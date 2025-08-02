@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../views/components/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../views/screens/auth/screens/forgot_password_screen.dart';
 import '../../views/screens/auth/screens/login_screen.dart';
 import '../../views/screens/auth/screens/otp_verify_screen.dart';
@@ -22,6 +23,15 @@ class AppRoutes {
   static const String otpVerifyScreen = "/OtpVerifyScreen";
   static const String resetPasswordScreen = "/ResetPasswordScreen";
 
+  ///===========================Home==========================
+  static const String bottomNavBar = "/BottomNavBar";
+  // static const String registerScreen = "/RegisterScreen";
+  // static const String forgotPasswordScreen = "/ForgotPasswordScreen";
+  // static const String otpVerifyScreen = "/OtpVerifyScreen";
+  // static const String resetPasswordScreen = "/ResetPasswordScreen";
+
+  ///
+  ///
   static List<GetPage> routes = [
     ///===========================Splash & Onboarding==========================
     GetPage(name: splashScreen, page: () => SplashScreen()),
@@ -36,5 +46,9 @@ class AppRoutes {
     GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
 
     ///===========================Home==========================
+    GetPage(name: bottomNavBar, page: () => BottomNavBar()),
+    //   GetPage(name: forgotPasswordScreen, page: () => ForgotPasswordScreen()),
+    //   GetPage(name: otpVerifyScreen, page: () => OtpVerifyScreen()),
+    //   GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
   ];
 }

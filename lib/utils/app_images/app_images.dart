@@ -4,6 +4,7 @@ class AppImages {
   ///====================== onboard =========================
 
   static const String logo = "$basePath/logo.png";
+  static const String communityLogo = "$basePath/community_logo.png";
   static const String footballMatch1 = "$basePath/football_match1.png";
   static const String footballMatch2 = "$basePath/football_match2.png";
   static const String cornerDecorationSvg = "$basePath/diagonal_lines.svg";

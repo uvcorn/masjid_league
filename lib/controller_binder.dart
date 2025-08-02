@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
 
+import 'views/components/bottom_nav_bar/bottom_nav_controller.dart';
+
 class ControllerBinder extends Bindings {
   @override
   void dependencies() {
     // Get.lazyPut<AuthController>(() => AuthController());
     // Get.put(AuthController());
-    // Get.put(BottomNavController());
+    Get.put(BottomNavController());
     // Get.put(CreatePostController());
     // // Get.lazyPut<PostController>(() => PostController());
     // // Get.lazyPut<GroupController>(() => GroupController());

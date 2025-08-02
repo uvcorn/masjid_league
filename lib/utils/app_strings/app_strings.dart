@@ -1,4 +1,7 @@
 class AppStrings {
+  ///Font
+  static const String poppinsFont = 'Poppins';
+  static const String oswaldFont = 'Oswald';
   static const String appTitle = "MASJID LEAGUE";
   //===================Onbording and splash==============
   static const String title1 = "EMPOWERING YOUTHS THROUGH FAITH AND SPORT";
@@ -62,26 +65,23 @@ class AppStrings {
   static const String savePassword = 'Save Password';
   //bottom nav
   static const String home = 'Home';
-  static const String group = 'Group';
+  static const String myTournament = 'My Tournament ';
   static const String notification = 'Notification';
-  static const String post = "Post";
+  static const String favorites = "Favorites";
   static const String profile = 'Profile';
 
-  static const String poppinsFont = 'Poppins';
-
-  static const String oswaldFont = 'Oswald';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String prayerTime = 'Prayer time';
+  static const String prayerTime1 = '4:00 PM';
+  static const String prayerTime2 = '6:48 PM';
+  static const String aSR = 'ASR';
+  static const String mAGH = 'MAGH';
+  static const String featured = 'Featured';
+  static const String myCommunity = 'My Community';
+  static const String alaminMasjid = 'Alamin Masjid';
+  static const String community = 'Community';
+  static const String sTrengthOnUnity = 'STRENGTH IN UNITY';
+  static const String focusedOnThePitch = 'Focused on the pitch';
+  static const String registerYouCommunity = 'Register You Community';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

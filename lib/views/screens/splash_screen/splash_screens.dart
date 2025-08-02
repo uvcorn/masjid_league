@@ -5,6 +5,7 @@ import '../../../core/app_routes/app_routes.dart';
 import '../../../utils/app_images/app_images.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../components/custom_image/custom_image.dart';
+import '../../components/custom_text/custom_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,20 +23,23 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _moveTONextScreen() async {
     await Future.delayed(Duration(seconds: 2));
-    Get.offAllNamed(AppRoutes.onboardingScreen);
+    Get.offAllNamed(AppRoutes.bottomNavBar);
   }
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme.titleLarge;
-
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomImage(imageSrc: AppImages.logo),
-            Text(AppStrings.appTitle, style: textTheme),
+            CustomText(
+              text: AppStrings.appTitle,
+              fontFamily: AppStrings.oswaldFont,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ],
         ),
       ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../utils/app_colors/app_colors.dart';
-import '../../../../utils/app_icons/app_icons.dart';
 import '../../../../utils/app_strings/app_strings.dart';
-import '../custom_image/custom_image.dart';
+import '../../screens/home/screens/home_screen.dart';
 import 'bottom_nav_controller.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -15,18 +14,18 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _screens = [
-    // HomeScreen(),
-    // PostCreateScreens(),
-    // NotificationScreen(),
-    // ProfileScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return GetBuilder<BottomNavController>(
-      builder: (navcontroller) {
+      builder: (navController) {
         return Scaffold(
-          body: _screens[navcontroller.selectedIndex],
+          body: _screens[navController.selectedIndex],
           bottomNavigationBar: NavigationBarTheme(
             data: NavigationBarThemeData(
               indicatorColor: Colors.transparent,
@@ -35,10 +34,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
               labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((
                 states,
               ) {
+                if (states.contains(WidgetState.selected)) {
+                  return textTheme.labelMedium!.copyWith(
+                    color: AppColors.primary,
+                  );
+                }
                 return textTheme.labelMedium!.copyWith(
-                  color: states.contains(WidgetState.selected)
-                      ? AppColors.primary
-                      : Colors.grey,
+                  fontSize: 0,
+                  color: Colors.transparent,
                 );
               }),
             ),
@@ -51,46 +54,43 @@ class _BottomNavBarState extends State<BottomNavBar> {
               child: SizedBox(
                 height: 80,
                 child: NavigationBar(
-                  selectedIndex: navcontroller.selectedIndex,
-                  onDestinationSelected: navcontroller.changeIndex,
+                  selectedIndex: navController.selectedIndex,
+                  onDestinationSelected: navController.changeIndex,
                   destinations: [
                     NavigationDestination(
-                      icon: CustomImage(
-                        imageSrc: navcontroller.selectedIndex == 0
-                            ? AppIcons.selectedhome
-                            : AppIcons.unselectedhome,
+                      icon: Icon(
+                        Icons.home,
+                        color: navController.selectedIndex == 0
+                            ? AppColors.primary
+                            : AppColors.mediumGray,
                       ),
                       label: AppStrings.home,
                     ),
                     NavigationDestination(
-                      icon: CustomImage(
-                        imageSrc: navcontroller.selectedIndex == 1
-                            ? AppIcons.selectedsmile
-                            : AppIcons.unselectedsmile,
+                      icon: Icon(
+                        Icons.emoji_events,
+                        color: navController.selectedIndex == 1
+                            ? AppColors.primary
+                            : AppColors.mediumGray,
                       ),
-                      label: AppStrings.group,
+
+                      label: AppStrings.myTournament,
                     ),
                     NavigationDestination(
-                      icon: CustomImage(
-                        imageSrc: navcontroller.selectedIndex == 2
-                            ? AppIcons.selectededit
-                            : AppIcons.unselectededit,
+                      icon: Icon(
+                        Icons.star,
+                        color: navController.selectedIndex == 2
+                            ? AppColors.primary
+                            : AppColors.mediumGray,
                       ),
-                      label: AppStrings.post,
+                      label: AppStrings.favorites,
                     ),
                     NavigationDestination(
-                      icon: CustomImage(
-                        imageSrc: navcontroller.selectedIndex == 3
-                            ? AppIcons.selectedbell
-                            : AppIcons.unselectedbell,
-                      ),
-                      label: AppStrings.notification,
-                    ),
-                    NavigationDestination(
-                      icon: CustomImage(
-                        imageSrc: navcontroller.selectedIndex == 4
-                            ? AppIcons.selectedaccount
-                            : AppIcons.unselectedaccount,
+                      icon: Icon(
+                        Icons.person,
+                        color: navController.selectedIndex == 3
+                            ? AppColors.primary
+                            : AppColors.mediumGray,
                       ),
                       label: AppStrings.profile,
                     ),

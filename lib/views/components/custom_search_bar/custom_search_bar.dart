@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../utils/app_colors/app_colors.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({
+class CustomSearchBar extends StatelessWidget {
+  const CustomSearchBar({
     super.key,
     required this.hintText,
     this.hasBackground = false,
@@ -22,7 +23,7 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Container(
-      height: height,
+      height: height!.h,
       decoration: BoxDecoration(
         color: hasBackground ? background : Colors.transparent,
       ),
@@ -30,12 +31,11 @@ class SearchBar extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: textTheme.bodySmall?.copyWith(color: AppColors.mediumGray),
-          prefixIcon: const Icon(
-            Icons.search,
-            color: AppColors.black,
-            size: 22,
+          hintStyle: textTheme.bodySmall?.copyWith(
+            color: AppColors.mediumGray,
+            fontSize: 14.sp,
           ),
+          prefixIcon: Icon(Icons.search, color: AppColors.black, size: 24.w),
           filled: true,
           fillColor: fillcolor,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16),
