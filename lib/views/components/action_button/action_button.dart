@@ -73,7 +73,10 @@ class ActionButton extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: textTheme.bodyMedium!.copyWith(color: txtColor),
+              style: textTheme.bodyMedium!.copyWith(
+                color: txtColor,
+                fontWeight: FontWeight.w600,
+              ),
               overflow: TextOverflow.ellipsis,
             ),
           ),

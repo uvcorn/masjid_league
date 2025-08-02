@@ -18,7 +18,7 @@ class AppStrings {
   static const String joinAs = 'Join As';
   // static const String agreeWith = 'Agree with ';
 
-  // Password validation messages
+  // Auth Section
   static const String passwordRequired = 'Password is required';
   static const String passwordLength = 'Password must be 6-8 characters';
   static const String passwordMismatch = 'Passwords do not match';
@@ -27,14 +27,49 @@ class AppStrings {
   static const String backButton = 'Back';
   static const String finishButton = 'Finish';
 
+  static const String welcomeBackSignIn = "Welcome Back!\nLet's Sign In.";
+  static const String welcomeBackCreateAnAccount =
+      "Welcome Here!\nCreate An Account.";
+  static const String fillInYourInformation = 'Fill in your information.';
+  static const String email = 'Email';
+  static const String fullName = 'Full name';
+  // static const String signIn = 'SignIn';
+  static const String enterYourFullOtp = 'Enter your full OTP';
+  static const String password = 'Password';
+  static const String rememberMe = 'Remember me';
+  static const String forgotYourPassword = 'Forgot Your Password';
+  static const String agreeWith = 'Agree with';
+  static const String termsAndConditions = 'Terms and Conditions.';
+  static const String forgotPassword = 'ForgotPassword';
+  static const String signIn = 'Sign In';
+  static const String dontHaveAnAccount = "Don't have an account?";
+  static const String alreadyHaveAnAccount = "Already have an account?";
+  static const String signUp = 'Sign Up';
+  static const String enterYourEmailAddressToResetPassword =
+      "Enter your email address to reset your password.";
+  static const String getVerificationCode = 'Get Verification Code';
+  static const String enterVerificationCode = 'Enter Verification Code';
+  static const String enterVerificationCodeThatSentToYourEmail =
+      'Enter the code that was sent to your email.';
+  static const String verifyButton = 'Verify';
+  static const String resendCode = 'Resend';
+  static const String noCodeReceived = 'Didn’t receive the code?';
+  static const String enterVerificationCodeMessage =
+      'Enter the code that was sent to your email.';
+  static const String nowResetYourPassword = 'Now Reset Your Password';
+  static const String newPassword = 'New Password';
+  static const String confirmNewPassword = 'Confirm New Password';
+  static const String savePassword = 'Save Password';
   //bottom nav
   static const String home = 'Home';
   static const String group = 'Group';
-  static const String notific = 'Noti';
+  static const String notification = 'Notification';
   static const String post = "Post";
   static const String profile = 'Profile';
 
-  // static const String profile = 'Profile';
+  static const String poppinsFont = 'Poppins';
+
+  static const String oswaldFont = 'Oswald';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

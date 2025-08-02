@@ -84,7 +84,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                             ? AppIcons.selectedbell
                             : AppIcons.unselectedbell,
                       ),
-                      label: AppStrings.notific,
+                      label: AppStrings.notification,
                     ),
                     NavigationDestination(
                       icon: CustomImage(

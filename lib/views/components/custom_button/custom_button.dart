@@ -9,17 +9,17 @@ class CustomButton extends StatelessWidget {
   final bool selected;
 
   const CustomButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onTap,
     this.selected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     final fillColor = AppColors.secPrimary;
     return SizedBox(
-      height: 46.h,
+      height: 48.h,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onTap,
@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
           style: TextStyle(
             color: selected ? Colors.white : fillColor,
             fontWeight: FontWeight.w600,
-            fontSize: 16.sp,
+            fontSize: 20.sp,
           ),
         ),
       ),
