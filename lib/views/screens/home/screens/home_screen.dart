@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mojid/views/screens/home/widgets/image_slider.dart';
-
+import 'package:get/get.dart';
+import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_images/app_images.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_image/custom_image.dart';
+import '../../../components/custom_popup_menu_button/custom_popup_menu_button.dart';
 import '../../../components/custom_search_bar/custom_search_bar.dart';
 import '../../../components/custom_text/custom_text.dart';
+import '../widgets/image_slider.dart';
 import '../widgets/notification_bell_with_badge.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -124,19 +126,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: 16.h),
-                Container(
-                  height: 80,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.secPrimary),
-                  ),
-                  child: Center(
-                    child: CustomText(
-                      textAlign: TextAlign.center,
-                      text: AppStrings.registerYouCommunity,
-                      color: AppColors.secPrimary,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(AppRoutes.registerCommunityScreen);
+                  },
+                  child: Container(
+                    height: 80,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: AppColors.secPrimary),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: CustomText(
+                        textAlign: TextAlign.center,
+                        text: AppStrings.registerYourCommunity,
+                        color: AppColors.secPrimary,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -148,50 +156,61 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: AppColors.primary,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        SizedBox(height: 24.w),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 24.w),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CustomImage(imageSrc: AppImages.communityLogo),
-                              SizedBox(width: 24.w),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 16.h),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.w),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 0.0),
+                              child: Row(
                                 children: [
-                                  CustomText(
-                                    textAlign: TextAlign.center,
-                                    text: AppStrings.alaminMasjid,
-                                    color: AppColors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                  CustomImage(
+                                    imageSrc: AppImages.communityLogo,
+                                    size: 32.r,
                                   ),
-                                  CustomText(
-                                    textAlign: TextAlign.center,
-                                    text: AppStrings.community,
-                                    color: AppColors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                  SizedBox(width: 16.w),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      CustomText(
+                                        text: AppStrings.alaminMasjid,
+                                        color: AppColors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      CustomText(
+                                        text: AppStrings.community,
+                                        color: AppColors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                              SizedBox(width: 24.w),
-                              Spacer(),
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.more_vert,
-                                  color: AppColors.secPrimary,
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                            Spacer(),
+                            CustomPopupMenuButton(
+                              items: [
+                                'Copy Tournament (with Team)',
+                                'Copy Tournament (without Team)',
+                                'Delete Tournament',
+                              ],
+                              onChanged: (selectedItem) {
+                                // handle
+                              },
+                              icons: Icons.more_vert,
+                              iconColor: AppColors.secPrimary,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 100.h),

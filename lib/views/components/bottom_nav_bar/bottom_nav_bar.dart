@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../screens/home/screens/home_screen.dart';
@@ -19,6 +22,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     HomeScreen(),
     HomeScreen(),
   ];
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -26,75 +30,104 @@ class _BottomNavBarState extends State<BottomNavBar> {
       builder: (navController) {
         return Scaffold(
           body: _screens[navController.selectedIndex],
-          bottomNavigationBar: NavigationBarTheme(
-            data: NavigationBarThemeData(
-              indicatorColor: Colors.transparent,
-              backgroundColor: AppColors.white,
-              shadowColor: AppColors.white,
-              labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((
-                states,
-              ) {
-                if (states.contains(WidgetState.selected)) {
-                  return textTheme.labelMedium!.copyWith(
-                    color: AppColors.primary,
-                  );
-                }
-                return textTheme.labelMedium!.copyWith(
-                  fontSize: 0,
-                  color: Colors.transparent,
-                );
-              }),
-            ),
-            child: Theme(
-              data: Theme.of(context).copyWith(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                splashFactory: NoSplash.splashFactory,
+          bottomNavigationBar: Container(
+            height: 70.h,
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.r),
+                topRight: Radius.circular(30.r),
               ),
-              child: SizedBox(
-                height: 80,
-                child: NavigationBar(
-                  selectedIndex: navController.selectedIndex,
-                  onDestinationSelected: navController.changeIndex,
-                  destinations: [
-                    NavigationDestination(
-                      icon: Icon(
-                        Icons.home,
-                        color: navController.selectedIndex == 0
-                            ? AppColors.primary
-                            : AppColors.mediumGray,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.black.withOpacity(
+                    0.1,
+                  ), // Softer shadow color
+                  spreadRadius: 0,
+                  blurRadius: 15,
+                  offset: Offset(0, -5),
+                ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(60.r),
+                topRight: Radius.circular(60.r),
+              ),
+              child: NavigationBarTheme(
+                data: NavigationBarThemeData(
+                  indicatorColor: Colors.transparent,
+                  backgroundColor: AppColors.white,
+                  shadowColor: Colors.transparent,
+                  labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.selected)) {
+                      return textTheme.labelMedium!.copyWith(
+                        color: AppColors.primary,
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.bold,
+                      );
+                    }
+                    return textTheme.labelMedium!.copyWith(
+                      color: Colors.transparent,
+                      fontSize: 0.sp,
+                    );
+                  }),
+                ),
+                child: Theme(
+                  data: Theme.of(context).copyWith(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashFactory: NoSplash.splashFactory,
+                  ),
+                  child: NavigationBar(
+                    selectedIndex: navController.selectedIndex,
+                    onDestinationSelected: navController.changeIndex,
+                    height: 70.h,
+                    destinations: [
+                      NavigationDestination(
+                        icon: Icon(
+                          Icons.home,
+                          color: navController.selectedIndex == 0
+                              ? AppColors.primary
+                              : AppColors.mediumGray,
+                          size: 24.r,
+                        ),
+                        label: AppStrings.home,
                       ),
-                      label: AppStrings.home,
-                    ),
-                    NavigationDestination(
-                      icon: Icon(
-                        Icons.emoji_events,
-                        color: navController.selectedIndex == 1
-                            ? AppColors.primary
-                            : AppColors.mediumGray,
+                      NavigationDestination(
+                        icon: Icon(
+                          Icons.emoji_events,
+                          color: navController.selectedIndex == 1
+                              ? AppColors.primary
+                              : AppColors.mediumGray,
+                          size: 24.r,
+                        ),
+                        label: AppStrings.myTournament,
                       ),
-
-                      label: AppStrings.myTournament,
-                    ),
-                    NavigationDestination(
-                      icon: Icon(
-                        Icons.star,
-                        color: navController.selectedIndex == 2
-                            ? AppColors.primary
-                            : AppColors.mediumGray,
+                      NavigationDestination(
+                        icon: Icon(
+                          Icons.star,
+                          color: navController.selectedIndex == 2
+                              ? AppColors.primary
+                              : AppColors.mediumGray,
+                          size: 24.r,
+                        ),
+                        label: AppStrings.favorites,
                       ),
-                      label: AppStrings.favorites,
-                    ),
-                    NavigationDestination(
-                      icon: Icon(
-                        Icons.person,
-                        color: navController.selectedIndex == 3
-                            ? AppColors.primary
-                            : AppColors.mediumGray,
+                      NavigationDestination(
+                        icon: Icon(
+                          Icons.person,
+                          color: navController.selectedIndex == 3
+                              ? AppColors.primary
+                              : AppColors.mediumGray,
+                          size: 24.r,
+                        ),
+                        label: AppStrings.profile,
                       ),
-                      label: AppStrings.profile,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

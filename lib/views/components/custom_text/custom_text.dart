@@ -14,10 +14,10 @@ class CustomText extends StatelessWidget {
     this.top = 0,
     this.bottom = 0,
     this.fontSize = 12,
-    this.fontWeight = FontWeight.w300,
+    this.fontWeight = FontWeight.w400,
     this.color = AppColors.black,
     required this.text,
-    this.overflow = TextOverflow.ellipsis,
+    this.overflow = TextOverflow.visible,
     this.decoration,
     this.fontFamily,
   });

@@ -46,6 +46,7 @@ class CustomImage extends StatelessWidget {
             width: width,
             height: height,
             fit: fit,
+            alignment: Alignment.topCenter,
           );
 
     return Container(

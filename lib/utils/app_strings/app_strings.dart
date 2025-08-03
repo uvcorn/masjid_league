@@ -1,9 +1,11 @@
 class AppStrings {
   ///Font
+
+  static const String tiltWarpFont = 'Tilt Warp';
   static const String poppinsFont = 'Poppins';
   static const String oswaldFont = 'Oswald';
   static const String appTitle = "MASJID LEAGUE";
-  //===================Onbording and splash==============
+  //===================OnBorDing and splash==============
   static const String title1 = "EMPOWERING YOUTHS THROUGH FAITH AND SPORT";
   static const String title2 = "BUILDING CHARACTER THROUGH FAITH AND TEAMWORK";
   static const String title3 = "CHASING DREAMS, GUIDED BY FAITH";
@@ -81,13 +83,18 @@ class AppStrings {
   static const String community = 'Community';
   static const String sTrengthOnUnity = 'STRENGTH IN UNITY';
   static const String focusedOnThePitch = 'Focused on the pitch';
-  static const String registerYouCommunity = 'Register You Community';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String registerYourCommunity = 'Register Your Community';
+  static const String joinTheMasjidSports =
+      'Join the Masjid Sports Community – Register Now!';
+  static const String registerCommunityDescription1 =
+      'Join our platform and create a Masjid Sports Community to bring youth together through football tournaments. Compete in quarterly matches with other masjids in a knockout format, building friendships, and promoting healthy competition.';
+  static const String teamSize = 'Team Size: 8 players + 3 substitutes';
+  static const String format =
+      'Format: Knockout – 4 matches to reach the final!';
+  static const String registerCommunityDescription2 =
+      "This is not just about football; it’s about uniting the youth, encouraging them to stay active, and practicing Islamic values through sportsmanship. It’s an opportunity for masjid communities to grow stronger and inspire the next generation.";
+  static const String registerCommunityDescription3 =
+      "Spaces are limited, so register your masjid now, and let's make a difference together, Inshallah!";
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
