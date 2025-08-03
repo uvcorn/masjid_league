@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../utils/app_colors/app_colors.dart';
-import '../../../../utils/app_icons/app_icons.dart';
-import '../custom_image/custom_image.dart';
 
 class InputBar extends StatelessWidget {
   final TextEditingController textController;
@@ -54,15 +52,9 @@ class InputBar extends StatelessWidget {
 
         // Show attach button only if onAttachPressed is not null
         if (onAttachPressed != null)
-          IconButton(
-            icon: CustomImage(imageSrc: AppIcons.adddocument),
-            onPressed: onAttachPressed,
-          ),
+          IconButton(icon: Icon(Icons.attach_file), onPressed: onAttachPressed),
 
-        IconButton(
-          icon: CustomImage(imageSrc: AppIcons.image),
-          onPressed: onImagePressed,
-        ),
+        IconButton(icon: Icon(Icons.image), onPressed: onImagePressed),
 
         const SizedBox(width: 4),
 

@@ -44,7 +44,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 CustomText(
                   text: AppStrings.nowResetYourPassword,
                   fontSize: 20,
-                  fontFamily: AppStrings.poppinsFont,
+                  fontFamily: AppStrings.oswaldFont,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: 10.h),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../utils/app_icons/app_icons.dart';
 import '../../../../utils/app_images/app_images.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
@@ -40,7 +39,7 @@ class TopAppBar extends StatelessWidget {
             onTap: () {
               // Get.toNamed(AppRoutes.settingsScreens);
             },
-            child: CustomImage(imageSrc: AppIcons.bars),
+            child: Icon(Icons.more_horiz),
           ),
         ],
       ),

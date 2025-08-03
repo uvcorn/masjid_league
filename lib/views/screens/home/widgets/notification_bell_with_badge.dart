@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../utils/app_colors/app_colors.dart';
+import 'package:mojid/utils/app_icons/app_icons.dart';
+import 'package:mojid/views/components/custom_image/custom_image.dart';
 
 class NotificationBellWithBadge extends StatelessWidget {
   final int notificationCount;
@@ -17,7 +17,7 @@ class NotificationBellWithBadge extends StatelessWidget {
     this.bellColor = Colors.brown,
     this.bellSize = 30.0,
     this.badgeColor = Colors.red,
-    this.badgeRadius = 4.0,
+    this.badgeRadius = 2.0,
     this.badgeOffsetDx = 10.0,
     this.badgeOffsetDy = -10.0,
     this.onTap,
@@ -38,11 +38,7 @@ class NotificationBellWithBadge extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: bellColor, width: 1.5),
             ),
-            child: Icon(
-              Icons.notifications_none,
-              color: bellColor,
-              size: bellSize,
-            ),
+            child: CustomImage(imageSrc: AppIcons.bell, fit: BoxFit.fill),
           ),
 
           if (notificationCount > 0)
@@ -55,7 +51,7 @@ class NotificationBellWithBadge extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: badgeColor,
                   shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.white, width: 1.5),
+                  // border: Border.all(color: AppColors.white, width: 1.5),
                 ),
               ),
             ),

@@ -6,11 +6,11 @@ import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_images/app_images.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_image/custom_image.dart';
-import '../../../components/custom_popup_menu_button/custom_popup_menu_button.dart';
 import '../../../components/custom_search_bar/custom_search_bar.dart';
 import '../../../components/custom_text/custom_text.dart';
 import '../widgets/image_slider.dart';
 import '../widgets/notification_bell_with_badge.dart';
+import '../widgets/tournament_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -47,9 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       notificationCount: 5,
                       bellColor: AppColors.secPrimary,
                       badgeColor: AppColors.red,
-                      badgeRadius: 5.0,
-                      badgeOffsetDx: 4.0,
-                      badgeOffsetDy: 8.0,
+                      badgeRadius: 4.0,
+                      badgeOffsetDx: 6.0,
+                      badgeOffsetDy: 5.0,
                       onTap: () {},
                     ),
                   ],
@@ -149,69 +149,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(height: 16.h),
-                Container(
-                  height: 92,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 16.h),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24.w),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 0.0),
-                              child: Row(
-                                children: [
-                                  CustomImage(
-                                    imageSrc: AppImages.communityLogo,
-                                    size: 32.r,
-                                  ),
-                                  SizedBox(width: 16.w),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      CustomText(
-                                        text: AppStrings.alaminMasjid,
-                                        color: AppColors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      CustomText(
-                                        text: AppStrings.community,
-                                        color: AppColors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Spacer(),
-                            CustomPopupMenuButton(
-                              items: [
-                                'Copy Tournament (with Team)',
-                                'Copy Tournament (without Team)',
-                                'Delete Tournament',
-                              ],
-                              onChanged: (selectedItem) {
-                                // handle
-                              },
-                              icons: Icons.more_vert,
-                              iconColor: AppColors.secPrimary,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(AppRoutes.communityScreen);
+                  },
+                  child: TournamentCard(),
                 ),
                 SizedBox(height: 100.h),
               ],

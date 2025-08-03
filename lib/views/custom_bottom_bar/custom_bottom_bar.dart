@@ -28,11 +28,14 @@ class BottomBarButton {
 class CustomBottomBar extends StatelessWidget {
   final BottomBarButton leftButton;
   final BottomBarButton rightButton;
-
+  final double buttonHight;
+  final double buttonWidth;
   const CustomBottomBar({
     super.key,
     required this.leftButton,
     required this.rightButton,
+    this.buttonHight = 48,
+    this.buttonWidth = 150,
   });
 
   @override
@@ -72,8 +75,8 @@ class CustomBottomBar extends StatelessWidget {
             );
 
       return SizedBox(
-        width: 150.w,
-        height: 48.h,
+        width: buttonWidth.w,
+        height: buttonHight.h,
         child: button.isPrimary
             ? ElevatedButton(
                 style: ElevatedButton.styleFrom(

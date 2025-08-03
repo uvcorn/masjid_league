@@ -1,8 +1,5 @@
 class AppStrings {
   ///Font
-
-  static const String tiltWarpFont = 'Tilt Warp';
-  static const String poppinsFont = 'Poppins';
   static const String oswaldFont = 'Oswald';
   static const String appTitle = "MASJID LEAGUE";
   //===================OnBorDing and splash==============
@@ -80,6 +77,7 @@ class AppStrings {
   static const String featured = 'Featured';
   static const String myCommunity = 'My Community';
   static const String alaminMasjid = 'Alamin Masjid';
+  static const String alaminMasjidCommunity = 'Alamin Masjid Community';
   static const String community = 'Community';
   static const String sTrengthOnUnity = 'STRENGTH IN UNITY';
   static const String focusedOnThePitch = 'Focused on the pitch';
@@ -114,10 +112,10 @@ class AppStrings {
   static const String register = 'Register';
   static const String back = 'Back';
   static const String registerCommunity = 'Register Community';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String userName = 'Sohail Ameen';
+  static const String raiseDonation = 'Raise Donation';
+  static const String yes = 'Yes';
+  static const String no = 'No';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

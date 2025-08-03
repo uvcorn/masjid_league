@@ -40,7 +40,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 CustomText(
                   text: AppStrings.forgotYourPassword,
                   fontSize: 20,
-                  fontFamily: AppStrings.poppinsFont,
+                  fontFamily: AppStrings.oswaldFont,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: 10.h),
