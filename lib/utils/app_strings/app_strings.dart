@@ -95,23 +95,25 @@ class AppStrings {
       "This is not just about football; it’s about uniting the youth, encouraging them to stay active, and practicing Islamic values through sportsmanship. It’s an opportunity for masjid communities to grow stronger and inspire the next generation.";
   static const String registerCommunityDescription3 =
       "Spaces are limited, so register your masjid now, and let's make a difference together, Inshallah!";
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String registerYourOrganization = 'Register Your Organization';
+  static const String masjidOrYouthCentreName = 'Masjid/Youth Centre Name';
+  static const String firstName = 'First Name';
+  static const String lastName = 'Last Name';
+  static const String phoneOrSMS = 'Phone / SMS';
+  static const String whatsApp = 'WhatsApp';
+  static const String preferredContactMethod = "Preferred Contact Method";
+  static const String positionRoleWithinOrganization =
+      "Position/Role within Organization";
+  static const String imInterestedIn = "I'm interested in:";
+  static const String anyQuestionOrRelevantInformation =
+      'Any questions or relevant information';
+  static const String submit = 'Submit';
+  static const String thanksForRegistration =
+      "Thank you. We'll be in touch to complete your registration.";
+  static const String done = 'Done';
+  static const String register = 'Register';
+  static const String back = 'Back';
+  static const String registerCommunity = 'Register Community';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

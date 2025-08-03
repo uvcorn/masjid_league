@@ -9,22 +9,24 @@ class CustomCheckbox extends StatefulWidget {
   final TextStyle? leadingTextStyle;
   final String clickableText;
   final TextStyle? clickableTextStyle;
-  final VoidCallback onLinkTap;
+  final VoidCallback? onLinkTap;
   final bool useSpaceBetweenAlignment;
   final bool centerAlignment;
+  final double checkboxLabelSpacing;
 
   const CustomCheckbox({
     super.key,
-    this.showCheckbox,
+    this.showCheckbox = true,
     this.value,
     this.onChanged,
     required this.leadingText,
     this.leadingTextStyle,
     required this.clickableText,
     this.clickableTextStyle,
-    required this.onLinkTap,
+    this.onLinkTap,
     this.useSpaceBetweenAlignment = false,
     this.centerAlignment = false,
+    this.checkboxLabelSpacing = 0.0,
   });
 
   @override
@@ -48,61 +50,66 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
     }
   }
 
+  void _toggleCheck() {
+    setState(() {
+      _isChecked = !_isChecked;
+    });
+    widget.onChanged?.call(_isChecked);
+  }
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final MainAxisAlignment mainRowAlignment = widget.useSpaceBetweenAlignment
+    final MainAxisAlignment rowAlignment = widget.useSpaceBetweenAlignment
         ? MainAxisAlignment.spaceBetween
         : (widget.centerAlignment
               ? MainAxisAlignment.center
               : MainAxisAlignment.start);
 
-    final bool shouldShowCheckbox = widget.showCheckbox == true;
-
     return Row(
-      mainAxisAlignment: mainRowAlignment,
+      mainAxisAlignment: rowAlignment,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (shouldShowCheckbox)
+        GestureDetector(
+          onTap: _toggleCheck,
+          behavior: HitTestBehavior.opaque,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (widget.showCheckbox ?? true)
+                Transform.translate(
+                  offset: const Offset(-8.0, 0.0),
+                  child: Checkbox(
+                    value: _isChecked,
+                    onChanged: (newValue) => _toggleCheck(),
+                    activeColor: Colors.black,
+                    checkColor: Colors.white,
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                ),
+              SizedBox(width: widget.checkboxLabelSpacing),
               Transform.translate(
                 offset: const Offset(-8.0, 0.0),
-                child: Checkbox(
-                  value: _isChecked,
-                  onChanged: (bool? newValue) {
-                    setState(() {
-                      _isChecked = newValue ?? false;
-                    });
-                    widget.onChanged?.call(newValue);
-                  },
-                  activeColor: Colors.grey,
-                  checkColor: Colors.white,
-                  materialTapTargetSize:
-                      MaterialTapTargetSize.shrinkWrap, // Keep this!
+                child: Text(
+                  widget.leadingText,
+                  style:
+                      widget.leadingTextStyle ??
+                      textTheme.bodyMedium?.copyWith(color: Colors.black),
                 ),
               ),
-
-            // Padding(
-            //   padding: const EdgeInsets.only(left: -4.0), // Experiment with negative values
-            //   child: Text(widget.leadingText, style: widget.leadingTextStyle ?? textTheme.bodySmall),
-            // ),
-            Text(
-              widget.leadingText,
-              style: widget.leadingTextStyle ?? textTheme.bodySmall,
-            ),
-          ],
+            ],
+          ),
         ),
 
         if (!widget.useSpaceBetweenAlignment && !widget.centerAlignment)
-          const SizedBox(width: 4),
+          const SizedBox(width: 0),
+
         if (widget.useSpaceBetweenAlignment) const Spacer(),
 
         GestureDetector(
           onTap: widget.onLinkTap,
           child: Text(
             widget.clickableText,
-            style: widget.clickableTextStyle ?? textTheme.bodySmall,
+            style: widget.clickableTextStyle ?? textTheme.bodyMedium,
           ),
         ),
       ],

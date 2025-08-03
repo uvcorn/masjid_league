@@ -9,6 +9,7 @@ import '../../../components/custom_image/custom_image.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
 import '../../../components/custom_text/custom_text.dart';
 import '../../../custom_bottom_bar/custom_bottom_bar.dart';
+import '../widgets/register_dialog.dart';
 
 class RegisterCommunityScreen extends StatefulWidget {
   const RegisterCommunityScreen({super.key});
@@ -42,7 +43,7 @@ class _RegisterCommunityScreenState extends State<RegisterCommunityScreen> {
                   ),
                   SizedBox(width: 16.w),
                   CustomText(
-                    text: 'Register Community',
+                    text: AppStrings.registerCommunity,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -148,14 +149,16 @@ class _RegisterCommunityScreenState extends State<RegisterCommunityScreen> {
       ),
       bottomNavigationBar: CustomBottomBar(
         leftButton: BottomBarButton(
-          label: 'Back',
+          label: AppStrings.back,
           onPressed: () {
             Get.back();
           },
         ),
         rightButton: BottomBarButton(
-          label: 'Register',
-          onPressed: () {},
+          label: AppStrings.register,
+          onPressed: () {
+            showRegisterDialog(context);
+          },
           isPrimary: true,
         ),
       ),

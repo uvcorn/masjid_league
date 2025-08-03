@@ -6,7 +6,7 @@ import '../../../utils/app_colors/app_colors.dart';
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
-  final IconData icon;
+  final IconData? icon;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
   final Color iconColor;
@@ -14,12 +14,13 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final VoidCallback? togglePassword;
   final double iconSize;
+  final int maxLine;
 
   const CustomTextField({
     super.key,
     required this.hintText,
     required this.controller,
-    required this.icon,
+    this.icon,
     this.isPassword = false,
     this.obscureText = false,
     this.togglePassword,
@@ -27,6 +28,7 @@ class CustomTextField extends StatelessWidget {
     this.iconSize = 20,
     required this.keyboardType,
     this.textInputAction = TextInputAction.done,
+    this.maxLine = 1,
   });
 
   @override
@@ -35,6 +37,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       obscureText: isPassword && obscureText,
       keyboardType: keyboardType,
+      maxLines: maxLine,
       textInputAction: textInputAction,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: iconColor),
@@ -51,7 +54,7 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(
           color: AppColors.mediumGray,
-          fontSize: 14.sp,
+          fontSize: 12.sp,
           fontWeight: FontWeight.w400,
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
