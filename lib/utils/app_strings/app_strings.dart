@@ -116,15 +116,16 @@ class AppStrings {
   static const String raiseDonation = 'Raise Donation';
   static const String yes = 'Yes';
   static const String no = 'No';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String overview = 'Overview';
+  static const String updates = 'Updates';
+  static const String hostingTournament = 'Hosting Tournament';
+  static const String ownedTeam = 'Owned Team';
+  static const String postANewUpdate = "+ Post A New Update";
+  static const String latestUpdates = 'Latest Updates';
+  static const String iftarPartyAfterMagrib = 'Iftar Party After Magrib';
+  static const String iftarPartyAfterMagribAtAlaminMasjid =
+      'Iftar Party After Magrib at Alamin Masjid';
+  static const String yesterday = 'Yesterday';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

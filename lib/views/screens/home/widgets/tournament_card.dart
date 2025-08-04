@@ -9,7 +9,8 @@ import '../../../components/custom_popup_menu_button/custom_popup_menu_button.da
 import '../../../components/custom_text/custom_text.dart';
 
 class TournamentCard extends StatelessWidget {
-  const TournamentCard({super.key});
+  final bool isOwnedTeam;
+  const TournamentCard({super.key, this.isOwnedTeam = false});
 
   @override
   Widget build(BuildContext context) {
@@ -58,18 +59,34 @@ class TournamentCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                CustomPopupMenuButton(
-                  items: [
-                    'Copy Tournament (with Team)',
-                    'Copy Tournament (without Team)',
-                    'Delete Tournament',
-                  ],
-                  onChanged: (selectedItem) {
-                    // handle
-                  },
-                  icons: Icons.more_vert,
-                  iconColor: AppColors.secPrimary,
-                ),
+                isOwnedTeam
+                    ? Container(
+                        height: 24.h,
+                        width: 24.w,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.star,
+                            color: AppColors.primaryOrange,
+                            size: 16.r,
+                          ),
+                        ),
+                      )
+                    : CustomPopupMenuButton(
+                        items: [
+                          'Copy Tournament (with Team)',
+                          'Copy Tournament (without Team)',
+                          'Delete Tournament',
+                        ],
+                        onChanged: (selectedItem) {
+                          // handle
+                        },
+                        icons: Icons.more_vert,
+                        iconColor: AppColors.secPrimary,
+                      ),
               ],
             ),
           ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:mojid/utils/app_const/app_const.dart';
-import 'package:mojid/views/components/custom_network_image/custom_network_image.dart';
 import '../../../../utils/app_colors/app_colors.dart';
+import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_strings/app_strings.dart';
+import '../../../components/custom_network_image/custom_network_image.dart';
 import '../../../components/custom_text/custom_text.dart';
 import '../widgets/tournament_card.dart';
 
@@ -151,8 +151,8 @@ class _CommunityScreenState extends State<CommunityScreen>
                     fontSize: 14.sp,
                   ),
                   tabs: const [
-                    Tab(text: "Overview"),
-                    Tab(text: "Updates"),
+                    Tab(text: AppStrings.overview),
+                    Tab(text: AppStrings.updates),
                   ],
                 ),
               ),
@@ -174,8 +174,9 @@ class _CommunityScreenState extends State<CommunityScreen>
       padding: EdgeInsets.only(top: 16.h),
       children: [
         CustomText(
-          text: "Hosting Tournament",
+          text: AppStrings.hostingTournament,
           fontSize: 20,
+          fontFamily: AppStrings.oswaldFont,
           fontWeight: FontWeight.bold,
           textAlign: TextAlign.left,
         ),
@@ -183,13 +184,14 @@ class _CommunityScreenState extends State<CommunityScreen>
         TournamentCard(),
         SizedBox(height: 16.h),
         CustomText(
-          text: "Owned Team",
+          text: AppStrings.ownedTeam,
           fontSize: 20,
+          fontFamily: AppStrings.oswaldFont,
           fontWeight: FontWeight.bold,
           textAlign: TextAlign.left,
         ),
         SizedBox(height: 16.h),
-        TournamentCard(),
+        TournamentCard(isOwnedTeam: true),
       ],
     );
   }
@@ -207,7 +209,7 @@ class _CommunityScreenState extends State<CommunityScreen>
           ),
           child: Center(
             child: CustomText(
-              text: "+ Post A New Update",
+              text: AppStrings.postANewUpdate,
               color: AppColors.secPrimary,
               fontWeight: FontWeight.w600,
             ),
@@ -215,12 +217,13 @@ class _CommunityScreenState extends State<CommunityScreen>
         ),
         SizedBox(height: 24.h),
         CustomText(
-          text: "Latest Updates",
-          fontSize: 14,
+          text: AppStrings.latestUpdates,
+          fontSize: 20,
+          fontFamily: AppStrings.oswaldFont,
           fontWeight: FontWeight.bold,
           textAlign: TextAlign.left,
         ),
-        SizedBox(height: 12.h),
+        SizedBox(height: 16.h),
         _buildUpdateCard(),
       ],
     );
@@ -229,52 +232,106 @@ class _CommunityScreenState extends State<CommunityScreen>
   Widget _buildUpdateCard() {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: Colors.grey.shade300),
+        borderRadius: BorderRadius.circular(10.r),
+        border: Border.all(color: AppColors.secPrimary),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
-            child: CustomNetworkImage(
-              imageUrl: AppConstants.footballLandscape,
-              height: 150.h,
-              width: double.infinity,
-              fit: BoxFit.cover,
+      child: Padding(
+        padding: EdgeInsets.all(8.0.r),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              child: CustomNetworkImage(
+                imageUrl: AppConstants.footballLandscape,
+                height: 150.h,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12.w),
-            child: Column(
+            SizedBox(height: 8.h),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    CustomText(
+                      text: AppStrings.iftarPartyAfterMagrib,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      textAlign: TextAlign.left,
+                    ),
+                    Spacer(),
+                    CustomText(
+                      text: AppStrings.yesterday,
+                      fontSize: 12,
+                      color: AppColors.mediumGray,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8.h),
                 CustomText(
-                  text: "Iftar Party After Magrib",
-                  fontWeight: FontWeight.bold,
+                  text: AppStrings.iftarPartyAfterMagribAtAlaminMasjid,
                   fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.mediumGray,
                   textAlign: TextAlign.left,
                 ),
-                SizedBox(height: 4.h),
+
+                SizedBox(height: 16.h),
                 CustomText(
-                  text: "Iftar Party After Magrib at Alamin Masjid",
-                  fontSize: 12,
-                  color: Colors.grey.shade700,
-                  textAlign: TextAlign.left,
+                  text: AppStrings.raiseDonation,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
-                SizedBox(height: 6.h),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: CustomText(
-                    text: "Yesterday",
-                    fontSize: 10,
-                    color: Colors.grey,
-                  ),
+                SizedBox(height: 8.h),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 40.h,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.secPrimary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: CustomText(
+                            text: AppStrings.yes,
+                            color: AppColors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
+                    Expanded(
+                      child: SizedBox(
+                        height: 40.h,
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(
+                              color: AppColors.secPrimary,
+                              width: 2,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: CustomText(
+                            text: AppStrings.no,
+                            color: AppColors.secPrimary,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

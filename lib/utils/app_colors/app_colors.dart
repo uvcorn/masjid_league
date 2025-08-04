@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 class AppColors {
   // Primary App Color
   static const Color primary = Color(0xFFCDA85C);
-
+  static const Color primaryOrange = Color(0xFFF59E0B);
   static const Color secPrimary = Color(0xFF876424);
   // Explicitly named colors
   static const Color greenish = Color(0xFF10B981); // (Greenish/Teal)
