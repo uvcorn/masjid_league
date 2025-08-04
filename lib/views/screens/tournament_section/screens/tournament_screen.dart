@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
+import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_images/app_images.dart';
@@ -176,7 +178,7 @@ class _TournamentScreenState extends State<TournamentScreen> {
 
               GestureDetector(
                 onTap: () {
-                  // Get.toNamed(AppRoutes.registerCommunityScreen);
+                  Get.toNamed(AppRoutes.createNewTournament);
                 },
                 child: Container(
                   height: 80,

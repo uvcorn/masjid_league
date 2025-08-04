@@ -8,6 +8,16 @@ class AppTheme {
   static ThemeData get lightThemeData {
     return ThemeData(
       textTheme: _textTheme.apply(),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(color: AppColors.secPrimary, width: 1.5),
+          foregroundColor: AppColors.primary,
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+        ),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,

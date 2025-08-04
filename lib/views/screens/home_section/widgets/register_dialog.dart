@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_checkbox/custom_checkbox.dart';
+import '../../../components/custom_dropdown_menu/custom_dropdown_menu.dart';
 import '../../../components/custom_input_field/custom_input_field.dart';
 import '../../../components/custom_text/custom_text.dart';
 
@@ -83,69 +84,19 @@ void showRegisterDialog(BuildContext context) {
                   SizedBox(height: 20.h),
 
                   /// Custom Contact Method Selector
-                  GestureDetector(
-                    onTapDown: (TapDownDetails details) async {
-                      final RenderBox box =
-                          context.findRenderObject() as RenderBox;
-                      box.localToGlobal(Offset.zero);
-
-                      final String? selected = await showMenu<String>(
-                        context: context,
-                        position: RelativeRect.fromLTRB(
-                          details.globalPosition.dx,
-                          details.globalPosition.dy,
-                          details.globalPosition.dx + 1,
-                          details.globalPosition.dy + 1,
-                        ),
-                        color: AppColors.white,
-                        items: [
-                          PopupMenuItem(
-                            value: AppStrings.email,
-                            child: Text(AppStrings.email),
-                          ),
-                          PopupMenuItem(
-                            value: AppStrings.phoneOrSMS,
-                            child: Text(AppStrings.phoneOrSMS),
-                          ),
-                          PopupMenuItem(
-                            value: AppStrings.whatsApp,
-                            child: Text(AppStrings.whatsApp),
-                          ),
-                        ],
-                      );
-
-                      if (selected != null) {
-                        setState(() {
-                          selectedContactMethod = selected;
-                        });
-                      }
+                  CustomDropdownMenu(
+                    options: const [
+                      AppStrings.email,
+                      AppStrings.phoneOrSMS,
+                      AppStrings.whatsApp,
+                    ],
+                    hint: AppStrings.selectMasjidORCommunity,
+                    selectedValue: selectedContactMethod,
+                    onSelected: (value) {
+                      setState(() {
+                        selectedContactMethod = value;
+                      });
                     },
-                    child: SizedBox(
-                      height: 44.h,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 12.w),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              selectedContactMethod ??
-                                  AppStrings.preferredContactMethod,
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: selectedContactMethod != null
-                                    ? Colors.black
-                                    : Colors.grey,
-                              ),
-                            ),
-                            Icon(Icons.keyboard_arrow_down),
-                          ],
-                        ),
-                      ),
-                    ),
                   ),
 
                   SizedBox(height: 12.h),

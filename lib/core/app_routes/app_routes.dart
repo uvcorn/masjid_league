@@ -11,6 +11,7 @@ import '../../views/screens/home_section/screens/register_community_screen.dart'
 import '../../views/screens/onboarding/onbording_screen.dart';
 import '../../views/screens/onboarding/welcome_screen.dart';
 import '../../views/screens/splash_screen/splash_screens.dart';
+import '../../views/screens/tournament_section/screens/create_new_tournament.dart';
 
 class AppRoutes {
   ///===========================Splash & Onboarding==========================
@@ -31,7 +32,7 @@ class AppRoutes {
   static const String registerCommunityScreen = "/RegisterCommunityScreen";
   static const String communityScreen = "/CommunityScreen";
   static const String postUpdateScreen = "/PostUpdateScreen";
-  // static const String tournamentScreen = "/TournamentScreen";
+  static const String createNewTournament = "/CreateNewTournament";
   //  static const String bottomNavBar = "/BottomNavBar";
   // static const String registerCommunityScreen = "/RegisterCommunityScreen";
   // static const String communityScreen = "/CommunityScreen";
@@ -61,7 +62,7 @@ class AppRoutes {
     ),
     GetPage(name: communityScreen, page: () => CommunityScreen()),
     GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
-    // GetPage(name: tournamentScreen, page: () => TournamentScreen()),
+    GetPage(name: createNewTournament, page: () => CreateNewTournament()),
     // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
     // GetPage(name: communityScreen, page: () => CommunityScreen()),
     // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),

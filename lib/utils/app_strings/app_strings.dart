@@ -140,19 +140,22 @@ class AppStrings {
   static const String byHost = 'by, Alamin Masjid';
   static const String detailDate = 'Friday, 20 June 2025';
   static const String createANewTournament = '+ Create A New Tournament';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String tournamentTitle = "Tournament title";
+  static const String tournamentLogo = 'Tournament logo';
+  static const String chooseFile = 'Choose File';
+  static const String masjidORCommunity = 'Masjid/Community';
+  static const String selectMasjidORCommunity = 'Select Masjid/Community';
+  static const String community1 = 'Community 1';
+  static const String community2 = 'Community 2';
+  static const String newTournament = 'New Tournament';
+  static const String allInformationCanBeChangedLater =
+      'All information can be changed later.';
+  static const String addACoverPhotoForTheTournament =
+      'Add a cover photo for the tournament';
+  static const String day1 = 'Day 1';
+  static const String addAnotherDay = 'Add Another Day';
+  static const String cancel = 'Cancel';
+  static const String next = 'Next';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
