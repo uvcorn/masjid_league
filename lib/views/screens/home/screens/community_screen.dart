@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_strings/app_strings.dart';
@@ -200,18 +201,24 @@ class _CommunityScreenState extends State<CommunityScreen>
     return ListView(
       padding: EdgeInsets.only(top: 16.h),
       children: [
-        Container(
-          height: 48.h,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.secPrimary, width: 1.5),
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-          child: Center(
-            child: CustomText(
-              text: AppStrings.postANewUpdate,
-              color: AppColors.secPrimary,
-              fontWeight: FontWeight.w600,
+        GestureDetector(
+          onTap: () {
+            Get.toNamed(AppRoutes.postUpdateScreen);
+          },
+          child: Container(
+            height: 80.h,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border.all(color: AppColors.secPrimary, width: 1.5),
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+            child: Center(
+              child: CustomText(
+                text: AppStrings.postANewUpdate,
+                color: AppColors.secPrimary,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
@@ -225,6 +232,7 @@ class _CommunityScreenState extends State<CommunityScreen>
         ),
         SizedBox(height: 16.h),
         _buildUpdateCard(),
+        SizedBox(height: 24.h),
       ],
     );
   }

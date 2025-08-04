@@ -126,13 +126,14 @@ class AppStrings {
   static const String iftarPartyAfterMagribAtAlaminMasjid =
       'Iftar Party After Magrib at Alamin Masjid';
   static const String yesterday = 'Yesterday';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String postANewUpdateTop = 'Post a New Update';
+  static const String uploadACoverForTheUpdate =
+      'Upload a cover for the update';
+  static const String upload = 'Upload';
+  static const String titleUpdate = 'Title update';
+  static const String details = 'Details';
+  static const String scheduledTime = 'Scheduled Time';
+  static const String postNow = 'Post Now';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

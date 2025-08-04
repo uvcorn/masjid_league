@@ -6,6 +6,7 @@ import '../../views/screens/auth/screens/otp_verify_screen.dart';
 import '../../views/screens/auth/screens/register_screen.dart';
 import '../../views/screens/auth/screens/reset_password_screen.dart';
 import '../../views/screens/home/screens/community_screen.dart';
+import '../../views/screens/home/screens/post_update_screen.dart';
 import '../../views/screens/home/screens/register_community_screen.dart';
 import '../../views/screens/onboarding/onbording_screen.dart';
 import '../../views/screens/onboarding/welcome_screen.dart';
@@ -29,7 +30,7 @@ class AppRoutes {
   static const String bottomNavBar = "/BottomNavBar";
   static const String registerCommunityScreen = "/RegisterCommunityScreen";
   static const String communityScreen = "/CommunityScreen";
-  // static const String otpVerifyScreen = "/OtpVerifyScreen";
+  static const String postUpdateScreen = "/PostUpdateScreen";
   // static const String resetPasswordScreen = "/ResetPasswordScreen";
 
   ///
@@ -54,6 +55,6 @@ class AppRoutes {
       page: () => RegisterCommunityScreen(),
     ),
     GetPage(name: communityScreen, page: () => CommunityScreen()),
-    //   GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
+    GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
   ];
 }
