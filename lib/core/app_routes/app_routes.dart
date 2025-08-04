@@ -11,7 +11,6 @@ import '../../views/screens/home_section/screens/register_community_screen.dart'
 import '../../views/screens/onboarding/onbording_screen.dart';
 import '../../views/screens/onboarding/welcome_screen.dart';
 import '../../views/screens/splash_screen/splash_screens.dart';
-import '../../views/screens/tournament_section/screens/tournament_screen.dart';
 
 class AppRoutes {
   ///===========================Splash & Onboarding==========================

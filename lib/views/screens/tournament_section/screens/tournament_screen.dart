@@ -10,6 +10,7 @@ import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_app_bar/custom_app_bar.dart';
 import '../../../components/custom_image/custom_image.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
+import '../../../components/custom_popup_menu_button/custom_popup_menu_button.dart';
 import '../../../components/custom_text/custom_text.dart';
 
 class TournamentScreen extends StatefulWidget {
@@ -38,11 +39,12 @@ class _TournamentScreenState extends State<TournamentScreen> {
                   // Handle tap
                 },
               ),
-              SizedBox(height: 24.h),
+              SizedBox(height: 20.h),
               CustomText(
                 text: AppStrings.myTournament,
                 fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
+                fontFamily: AppStrings.oswaldFont,
+                fontSize: 20.sp,
               ),
               SizedBox(height: 12.h),
 
@@ -52,8 +54,8 @@ class _TournamentScreenState extends State<TournamentScreen> {
                   borderRadius: BorderRadius.circular(12.r),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.black.withOpacity(0.5),
-                      blurRadius: 6.r,
+                      color: AppColors.black.withOpacity(0.1),
+                      blurRadius: 4.r,
                       offset: Offset(0.r, 3.r),
                     ),
                   ],
@@ -84,9 +86,17 @@ class _TournamentScreenState extends State<TournamentScreen> {
                               Positioned(
                                 top: 8,
                                 right: 8,
-                                child: Icon(
-                                  Icons.more_vert,
-                                  color: Colors.white,
+                                child: CustomPopupMenuButton(
+                                  items: [
+                                    'Copy Tournament (with Team)',
+                                    'Copy Tournament (without Team)',
+                                    'Delete Tournament',
+                                  ],
+                                  onChanged: (selectedItem) {
+                                    // handle
+                                  },
+                                  icons: Icons.more_vert,
+                                  iconColor: AppColors.white,
                                 ),
                               ),
                               Positioned(
@@ -147,11 +157,15 @@ class _TournamentScreenState extends State<TournamentScreen> {
                           bottomRight: Radius.circular(12),
                         ),
                       ),
-                      child: CustomText(
-                        text: AppStrings.detailDate,
-                        color: AppColors.black,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: CustomText(
+                          textAlign: TextAlign.left,
+                          text: AppStrings.detailDate,
+                          color: AppColors.black,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ],
@@ -160,24 +174,25 @@ class _TournamentScreenState extends State<TournamentScreen> {
 
               SizedBox(height: 24.h),
 
-              SizedBox(
-                height: 80.h,
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {},
-
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(color: AppColors.secPrimary),
-
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+              GestureDetector(
+                onTap: () {
+                  // Get.toNamed(AppRoutes.registerCommunityScreen);
+                },
+                child: Container(
+                  height: 80,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.secPrimary),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  child: CustomText(
-                    text: AppStrings.createANewTournament,
-                    color: AppColors.secPrimary,
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w400,
+                  child: Center(
+                    child: CustomText(
+                      textAlign: TextAlign.center,
+                      text: AppStrings.createANewTournament,
+                      color: AppColors.secPrimary,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

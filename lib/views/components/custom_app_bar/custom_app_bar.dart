@@ -52,13 +52,14 @@ class CustomAppBar extends StatelessWidget {
         ),
         SizedBox(height: 24.h),
         Container(
+          height: 60,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: AppColors.black.withOpacity(0.16),
-                offset: Offset(0, 2),
+                color: AppColors.black.withOpacity(0.1),
+                offset: Offset(4, 1),
                 blurRadius: 10,
-                spreadRadius: -8,
+                spreadRadius: -4,
               ),
             ],
           ),

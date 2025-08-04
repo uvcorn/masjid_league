@@ -28,16 +28,16 @@ class CustomTimePicker {
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
               ),
-              hourMinuteColor: MaterialStateColor.resolveWith((states) {
-                if (states.contains(MaterialState.selected)) {
+              hourMinuteColor: WidgetStateColor.resolveWith((states) {
+                if (states.contains(WidgetState.selected)) {
                   return primaryColor;
                 }
                 return lightGray; // Unselected background
               }),
 
               // AM / PM buttons
-              dayPeriodColor: MaterialStateColor.resolveWith((states) {
-                if (states.contains(MaterialState.selected)) {
+              dayPeriodColor: WidgetStateColor.resolveWith((states) {
+                if (states.contains(WidgetState.selected)) {
                   return primaryColor;
                 }
                 return Colors.grey.shade200;
