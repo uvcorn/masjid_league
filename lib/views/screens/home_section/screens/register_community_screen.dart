@@ -8,7 +8,7 @@ import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_image/custom_image.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
 import '../../../components/custom_text/custom_text.dart';
-import '../../../custom_bottom_bar/custom_bottom_bar.dart';
+import '../../../components/custom_bottom_bar/custom_bottom_bar.dart';
 import '../widgets/register_dialog.dart';
 
 class RegisterCommunityScreen extends StatefulWidget {

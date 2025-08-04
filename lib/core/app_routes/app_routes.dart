@@ -5,12 +5,13 @@ import '../../views/screens/auth/screens/login_screen.dart';
 import '../../views/screens/auth/screens/otp_verify_screen.dart';
 import '../../views/screens/auth/screens/register_screen.dart';
 import '../../views/screens/auth/screens/reset_password_screen.dart';
-import '../../views/screens/home/screens/community_screen.dart';
-import '../../views/screens/home/screens/post_update_screen.dart';
-import '../../views/screens/home/screens/register_community_screen.dart';
+import '../../views/screens/home_section/screens/community_screen.dart';
+import '../../views/screens/home_section/screens/post_update_screen.dart';
+import '../../views/screens/home_section/screens/register_community_screen.dart';
 import '../../views/screens/onboarding/onbording_screen.dart';
 import '../../views/screens/onboarding/welcome_screen.dart';
 import '../../views/screens/splash_screen/splash_screens.dart';
+import '../../views/screens/tournament_section/screens/tournament_screen.dart';
 
 class AppRoutes {
   ///===========================Splash & Onboarding==========================
@@ -31,7 +32,12 @@ class AppRoutes {
   static const String registerCommunityScreen = "/RegisterCommunityScreen";
   static const String communityScreen = "/CommunityScreen";
   static const String postUpdateScreen = "/PostUpdateScreen";
-  // static const String resetPasswordScreen = "/ResetPasswordScreen";
+  // static const String tournamentScreen = "/TournamentScreen";
+  //  static const String bottomNavBar = "/BottomNavBar";
+  // static const String registerCommunityScreen = "/RegisterCommunityScreen";
+  // static const String communityScreen = "/CommunityScreen";
+  // static const String postUpdateScreen = "/PostUpdateScreen";
+  // static const String tournamentScreen = "/TournamentScreen";
 
   ///
   ///
@@ -56,5 +62,13 @@ class AppRoutes {
     ),
     GetPage(name: communityScreen, page: () => CommunityScreen()),
     GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
+    // GetPage(name: tournamentScreen, page: () => TournamentScreen()),
+    // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
+    // GetPage(name: communityScreen, page: () => CommunityScreen()),
+    // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
+    // GetPage(name: communityScreen, page: () => CommunityScreen()),
+    // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
+    // GetPage(name: communityScreen, page: () => CommunityScreen()),
+    // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
   ];
 }

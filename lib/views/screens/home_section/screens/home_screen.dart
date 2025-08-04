@@ -5,13 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
-import '../../../../utils/app_images/app_images.dart';
 import '../../../../utils/app_strings/app_strings.dart';
-import '../../../components/custom_image/custom_image.dart';
-import '../../../components/custom_search_bar/custom_search_bar.dart';
+import '../../../components/custom_app_bar/custom_app_bar.dart';
 import '../../../components/custom_text/custom_text.dart';
 import '../widgets/image_slider.dart';
-import '../widgets/notification_bell_with_badge.dart';
 import '../widgets/tournament_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,46 +31,14 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 12.h),
-                Row(
-                  children: [
-                    CustomImage(imageSrc: AppImages.logo, size: 32.r),
-                    SizedBox(width: 8.w),
-                    CustomText(
-                      text: AppStrings.appTitle,
-                      fontFamily: AppStrings.oswaldFont,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    Spacer(),
-                    NotificationBellWithBadge(
-                      notificationCount: 5,
-                      bellColor: AppColors.secPrimary,
-                      badgeColor: AppColors.red,
-                      badgeRadius: 4.0,
-                      badgeOffsetDx: 6.0,
-                      badgeOffsetDy: 5.0,
-                      onTap: () {},
-                    ),
-                  ],
+                CustomAppBar(
+                  hintText: AppStrings.searchCommunity,
+                  notificationCount: 5,
+                  onNotificationTap: () {
+                    // Handle tap
+                  },
                 ),
-                SizedBox(height: 24.h),
-                Container(
-                  decoration: BoxDecoration(
-                    // border: Border.all(color: AppColors.black),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.black.withOpacity(0.16),
-                        offset: Offset(0, 2),
-                        blurRadius: 10,
-                        spreadRadius: -8,
-                      ),
-                    ],
-                  ),
-                  child: CustomSearchBar(
-                    hintText: 'Search community',
-                    height: 60.h,
-                  ),
-                ),
+
                 SizedBox(height: 20.h),
                 Row(
                   children: [

@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_strings/app_strings.dart';
-import '../../screens/home/screens/home_screen.dart';
+import '../../screens/home_section/screens/home_screen.dart';
+import '../../screens/tournament_section/screens/tournament_screen.dart';
 import 'bottom_nav_controller.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -18,7 +19,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _screens = [
     HomeScreen(),
-    HomeScreen(),
+    TournamentScreen(),
     HomeScreen(),
     HomeScreen(),
   ];
