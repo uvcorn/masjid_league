@@ -26,8 +26,8 @@ class _RegisterCommunityScreenState extends State<RegisterCommunityScreen> {
       backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          padding: EdgeInsets.symmetric(
+            horizontal: 16.w,
           ), // Outer screen padding
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +53,7 @@ class _RegisterCommunityScreenState extends State<RegisterCommunityScreen> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 8),
+                    padding: EdgeInsets.only(left: 8.w),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,

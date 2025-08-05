@@ -11,7 +11,9 @@ import '../../views/screens/home_section/screens/register_community_screen.dart'
 import '../../views/screens/onboarding/onbording_screen.dart';
 import '../../views/screens/onboarding/welcome_screen.dart';
 import '../../views/screens/splash_screen/splash_screens.dart';
+import '../../views/screens/tournament_section/screens/choose_venue_screen.dart';
 import '../../views/screens/tournament_section/screens/create_new_tournament.dart';
+import '../../views/screens/tournament_section/screens/divisions_screen.dart';
 
 class AppRoutes {
   ///===========================Splash & Onboarding==========================
@@ -33,8 +35,8 @@ class AppRoutes {
   static const String communityScreen = "/CommunityScreen";
   static const String postUpdateScreen = "/PostUpdateScreen";
   static const String createNewTournament = "/CreateNewTournament";
-  //  static const String bottomNavBar = "/BottomNavBar";
-  // static const String registerCommunityScreen = "/RegisterCommunityScreen";
+  static const String chooseVenueScreen = "/ChooseVenueScreen";
+  static const String divisionsScreen = "/DivisionsScreen";
   // static const String communityScreen = "/CommunityScreen";
   // static const String postUpdateScreen = "/PostUpdateScreen";
   // static const String tournamentScreen = "/TournamentScreen";
@@ -63,8 +65,8 @@ class AppRoutes {
     GetPage(name: communityScreen, page: () => CommunityScreen()),
     GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
     GetPage(name: createNewTournament, page: () => CreateNewTournament()),
-    // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
-    // GetPage(name: communityScreen, page: () => CommunityScreen()),
+    GetPage(name: chooseVenueScreen, page: () => ChooseVenueScreen()),
+    GetPage(name: divisionsScreen, page: () => DivisionsScreen()),
     // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),
     // GetPage(name: communityScreen, page: () => CommunityScreen()),
     // GetPage(name: postUpdateScreen, page: () => PostUpdateScreen()),

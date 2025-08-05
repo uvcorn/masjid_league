@@ -47,7 +47,7 @@ class _PostUpdateScreenState extends State<PostUpdateScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Padding(
-        padding: EdgeInsets.all(24.0.r),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -157,7 +157,9 @@ class _PostUpdateScreenState extends State<PostUpdateScreen> {
                   ),
                   SizedBox(height: 64.h),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.secPrimary,
                       minimumSize: Size(double.infinity, 50.h),

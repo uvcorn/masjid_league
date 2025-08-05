@@ -155,12 +155,15 @@ class _TournamentScreenState extends State<TournamentScreen> {
                       decoration: BoxDecoration(
                         color: AppColors.white,
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12),
+                          bottomLeft: Radius.circular(12.r),
+                          bottomRight: Radius.circular(12.r),
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(16),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16.w,
+                          vertical: 16.h,
+                        ),
                         child: CustomText(
                           textAlign: TextAlign.left,
                           text: AppStrings.detailDate,

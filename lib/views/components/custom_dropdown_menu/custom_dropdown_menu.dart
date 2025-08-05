@@ -11,7 +11,6 @@ class CustomDropdownMenu extends StatelessWidget {
 
   // Optional styling
   final double height;
-  final EdgeInsetsGeometry padding;
   final Color backgroundColor;
   final Color textColor;
   final double fontSize;
@@ -34,7 +33,6 @@ class CustomDropdownMenu extends StatelessWidget {
     required this.onSelected,
     this.selectedValue,
     this.height = 44,
-    this.padding = const EdgeInsets.symmetric(horizontal: 12),
     this.backgroundColor = Colors.white,
     this.textColor = AppColors.black,
     this.fontSize = 14,
@@ -72,7 +70,7 @@ class CustomDropdownMenu extends StatelessWidget {
           color: backgroundColor,
           child: Container(
             height: height.h,
-            padding: padding,
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
             decoration: boxDecoration,
             color: isCircularBorderStyle ? null : backgroundColor,
             child: Row(

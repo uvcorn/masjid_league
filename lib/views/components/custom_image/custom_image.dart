@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomImage extends StatelessWidget {
@@ -50,7 +51,10 @@ class CustomImage extends StatelessWidget {
           );
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+      margin: EdgeInsets.symmetric(
+        horizontal: horizontal.w,
+        vertical: vertical.h,
+      ),
       child: imageWidget,
     );
   }

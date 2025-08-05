@@ -19,7 +19,7 @@ class TournamentCard extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.primary,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Column(
         children: [

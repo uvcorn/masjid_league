@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_strings/app_strings.dart';
@@ -13,7 +14,7 @@ import '../../../components/custom_text/custom_text.dart';
 import '../../../components/dynamic_date_field_list/dynamic_date_field_list.dart';
 import '../../../components/image_preview_box/image_preview_box.dart';
 import '../../../components/image_utils/image_utils.dart';
-import '../../../components/snackbar_helper/snackbar_helper.dart';
+import '../../../components/reusable_button_row/reusable_button_row.dart';
 
 class CreateNewTournament extends StatefulWidget {
   const CreateNewTournament({super.key});
@@ -45,7 +46,7 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
 
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(24.r),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -200,53 +201,13 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                 DynamicDateFieldList(),
 
                 SizedBox(height: 38.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                          side: BorderSide(
-                            color: AppColors.mediumGray,
-                            width: 1.5,
-                          ),
-                        ),
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: CustomText(
-                          textAlign: TextAlign.left,
-                          text: AppStrings.cancel,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: AppColors.secPrimary,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 16.w),
-                    Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.secPrimary,
-                        ),
-                        onPressed: () {
-                          Get.back();
-                          SnackbarHelper.show(
-                            message: 'Tournament created, ready to go!',
-                            backgroundColor: AppColors.primary,
-                            textColor: AppColors.white,
-                            isSuccess: true,
-                          );
-                        },
-                        child: CustomText(
-                          textAlign: TextAlign.left,
-                          text: AppStrings.next,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: AppColors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+                ReusableButtonRow(
+                  onCancelPressed: () {
+                    Get.back();
+                  },
+                  onNextPressed: () {
+                    Get.toNamed(AppRoutes.chooseVenueScreen);
+                  },
                 ),
                 SizedBox(height: 48.h),
               ],

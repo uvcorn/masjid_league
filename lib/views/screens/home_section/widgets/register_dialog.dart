@@ -28,7 +28,10 @@ void showRegisterDialog(BuildContext context) {
         builder: (context, setState) {
           return AlertDialog(
             backgroundColor: AppColors.white,
-            contentPadding: const EdgeInsets.all(16),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),

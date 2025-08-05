@@ -65,7 +65,7 @@ class SnackbarHelper {
       backgroundColor: bgColor,
       duration: duration,
       snackPosition: position,
-      margin: EdgeInsets.all(12.r),
+      margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
       borderRadius: 10.r,
     );
   }

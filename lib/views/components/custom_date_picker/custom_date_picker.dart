@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import '../../../utils/app_colors/app_colors.dart';
 
@@ -39,12 +40,12 @@ Future<void> showCustomDatePicker({
                   // Header
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.fromLTRB(24, 16, 24, 8),
+                    padding: EdgeInsets.fromLTRB(24.w, 16.h, 24.w, 8.h),
                     decoration: BoxDecoration(
                       color: AppColors.primary,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12.r),
+                        topRight: Radius.circular(12.r),
                       ),
                     ),
                     child: Column(
@@ -85,11 +86,7 @@ Future<void> showCustomDatePicker({
 
                   // Buttons
                   Padding(
-                    padding: const EdgeInsets.only(
-                      right: 16,
-                      bottom: 12,
-                      top: 0,
-                    ),
+                    padding: EdgeInsets.only(right: 16.w, bottom: 12.h, top: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -97,7 +94,7 @@ Future<void> showCustomDatePicker({
                           onPressed: () => Navigator.pop(context),
                           child: const Text("Cancel"),
                         ),
-                        const SizedBox(width: 8),
+                        SizedBox(width: 8.w),
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);

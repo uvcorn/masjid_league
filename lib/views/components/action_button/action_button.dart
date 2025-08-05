@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../utils/app_colors/app_colors.dart';
@@ -56,15 +57,15 @@ class ActionButton extends StatelessWidget {
 
     final iconWidget = hasIcon
         ? Padding(
-            padding: EdgeInsets.only(left: 16, right: iconTextSpacing),
+            padding: EdgeInsets.only(left: 16.w, right: iconTextSpacing),
             child: SvgPicture.asset(
               icon!,
-              width: 24,
-              height: 24,
+              width: 24.w,
+              height: 24.h,
               colorFilter: ColorFilter.mode(txtColor, BlendMode.srcIn),
             ),
           )
-        : const SizedBox(width: 16); // keeps layout alignment consistent
+        : SizedBox(width: 16.w); // keeps layout alignment consistent
 
     final child = Row(
       children: [

@@ -1,5 +1,6 @@
 // common_bottom_sheet.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // Assuming this path is correct for AppColors
 import '../../../../utils/app_colors/app_colors.dart';
 
@@ -51,20 +52,20 @@ class CommonBottomSheet extends StatelessWidget {
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 12, bottom: 8),
+                          padding: EdgeInsets.only(top: 12.h, bottom: 8.h),
                           child: Container(
-                            width: 32,
-                            height: 3,
+                            width: 32.w,
+                            height: 3.h,
                             decoration: BoxDecoration(
                               color: AppColors.black,
-                              borderRadius: BorderRadius.circular(3),
+                              borderRadius: BorderRadius.circular(3.r),
                             ),
                           ),
                         ),
                         SizedBox(height: 8),
                         if (title != null)
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(horizontal: 20.h),
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
@@ -86,7 +87,7 @@ class CommonBottomSheet extends StatelessWidget {
                       indent: 16,
                       endIndent: 16,
                     ),
-                  if (title != null || showDivider) const SizedBox(height: 8),
+                  if (title != null || showDivider) SizedBox(height: 8.h),
 
                   // --- Scrollable Content Section ---
                   Expanded(child: contentBuilder(context, scrollController)),

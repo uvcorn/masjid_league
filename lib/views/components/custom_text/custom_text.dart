@@ -41,10 +41,10 @@ class CustomText extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-        left: left,
-        right: right,
-        top: top,
-        bottom: bottom,
+        left: left.w,
+        right: right.w,
+        top: top.h,
+        bottom: bottom.h,
       ),
       child: Text(
         textAlign: textAlign,

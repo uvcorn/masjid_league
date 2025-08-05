@@ -159,17 +159,21 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String gallery = 'Gallery';
   static const String selectImageSource = 'Select Image Source';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String tournamentSuccessMessage =
+      'Tournament created, ready to go!';
+  static const String chooseAVenue = 'Choose a venue';
+  static const String provideTheNameOfTheTournamentVenue =
+      'Provide the name of the tournament venue.';
+  static const String venue = 'Venue';
+  static const String addAnotherVenue = 'Add Another Venue';
+  static const String onlineESportsTournament =
+      'This is an online (eSports) tournament';
+  static const String venueSavedSuccessfully = 'Venue saved successfully!';
+  static const String divisions = 'Divisions';
+  static const String youCanCreateMoreDivision =
+      'You can create more divisions (age group, competition levels)';
+  static const String division = 'Division';
+  static const String addAnotherDivision = 'Add Another Division';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

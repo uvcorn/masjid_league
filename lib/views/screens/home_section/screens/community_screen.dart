@@ -7,6 +7,7 @@ import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
 import '../../../components/custom_text/custom_text.dart';
+import '../../../components/toggle_yes_no_button/toggle_yes_no_button.dart';
 import '../widgets/tournament_card.dart';
 
 class CommunityScreen extends StatefulWidget {
@@ -91,50 +92,7 @@ class _CommunityScreenState extends State<CommunityScreen>
                 fontWeight: FontWeight.w600,
               ),
               SizedBox(height: 8.h),
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 40.h,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.secPrimary,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.r),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: CustomText(
-                          text: AppStrings.yes,
-                          color: AppColors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  Expanded(
-                    child: SizedBox(
-                      height: 40.h,
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                          side: BorderSide(
-                            color: AppColors.secPrimary,
-                            width: 2,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.r),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: CustomText(
-                          text: AppStrings.no,
-                          color: AppColors.secPrimary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              ToggleYesNoButton(),
               SizedBox(height: 24.h),
               Container(
                 decoration: BoxDecoration(
@@ -244,7 +202,7 @@ class _CommunityScreenState extends State<CommunityScreen>
         border: Border.all(color: AppColors.secPrimary),
       ),
       child: Padding(
-        padding: EdgeInsets.all(8.0.r),
+        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -292,50 +250,7 @@ class _CommunityScreenState extends State<CommunityScreen>
                   fontWeight: FontWeight.w600,
                 ),
                 SizedBox(height: 8.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 40.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.secPrimary,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: CustomText(
-                            text: AppStrings.yes,
-                            color: AppColors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 8.w),
-                    Expanded(
-                      child: SizedBox(
-                        height: 40.h,
-                        child: OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(
-                              color: AppColors.secPrimary,
-                              width: 2,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: CustomText(
-                            text: AppStrings.no,
-                            color: AppColors.secPrimary,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                ToggleYesNoButton(),
               ],
             ),
           ],

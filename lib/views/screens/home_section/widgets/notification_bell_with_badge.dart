@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mojid/utils/app_icons/app_icons.dart';
 import 'package:mojid/views/components/custom_image/custom_image.dart';
 
@@ -31,9 +32,8 @@ class NotificationBellWithBadge extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            height: 32,
-            width: 32,
-            // padding: const EdgeInsets.all(8.0),
+            height: 32.h,
+            width: 32.w,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: bellColor, width: 1.5),
