@@ -90,8 +90,11 @@ void showRegisterDialog(BuildContext context) {
                       AppStrings.phoneOrSMS,
                       AppStrings.whatsApp,
                     ],
-                    hint: AppStrings.selectMasjidORCommunity,
+                    hint: AppStrings.preferredContactMethod,
+                    hintTextColor: AppColors.mediumGray,
+                    borderColor: AppColors.mediumGray,
                     selectedValue: selectedContactMethod,
+                    fontSize: 12,
                     onSelected: (value) {
                       setState(() {
                         selectedContactMethod = value;

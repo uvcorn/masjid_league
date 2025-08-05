@@ -1,17 +1,19 @@
 // ignore_for_file: deprecated_member_use
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_strings/app_strings.dart';
-import '../../../components/custom_date_picker/custom_date_picker.dart';
 import '../../../components/custom_dropdown_menu/custom_dropdown_menu.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
 import '../../../components/custom_text/custom_text.dart';
+import '../../../components/dynamic_date_field_list/dynamic_date_field_list.dart';
+import '../../../components/image_preview_box/image_preview_box.dart';
+import '../../../components/image_utils/image_utils.dart';
+import '../../../components/snackbar_helper/snackbar_helper.dart';
 
 class CreateNewTournament extends StatefulWidget {
   const CreateNewTournament({super.key});
@@ -23,18 +25,17 @@ class CreateNewTournament extends StatefulWidget {
 class _CreateNewTournamentState extends State<CreateNewTournament> {
   DateTime selectedDate = DateTime.now();
   String? selectedContactMethod;
-
+  List<DateTime> selectedDates = [DateTime.now()];
+  List<TextEditingController> dateControllers = [TextEditingController()];
   final titleController = TextEditingController();
-  Future<void> _pickDate(BuildContext context) async {
-    await showCustomDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      onDateSelected: (picked) {
-        setState(() {
-          selectedDate = picked;
-        });
-      },
-    );
+  final dateController = TextEditingController();
+  File? _backgroundImageFile;
+  File? _logoImageFile;
+
+  @override
+  void initState() {
+    super.initState();
+    dateControllers[0].text = DateFormat('dd-MM-yyyy').format(selectedDates[0]);
   }
 
   @override
@@ -64,7 +65,7 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                   ],
                 ),
                 SizedBox(height: 16.h),
-                const CustomText(
+                CustomText(
                   text: AppStrings.allInformationCanBeChangedLater,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -82,12 +83,19 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12.r),
-                      child: CustomNetworkImage(
-                        imageUrl: AppConstants.footballLandscape,
-                        height: 190.h,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
+                      child: _backgroundImageFile != null
+                          ? Image.file(
+                              _backgroundImageFile!,
+                              height: 190.h,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            )
+                          : CustomNetworkImage(
+                              imageUrl: AppConstants.footballLandscape,
+                              height: 190.h,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
                     ),
 
                     Container(
@@ -99,11 +107,15 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                       ),
                       child: Center(
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () => pickImage((file) {
+                            setState(() {
+                              _backgroundImageFile = file;
+                            });
+                          }),
                           child: Icon(
                             Icons.camera_alt,
-                            color: AppColors.white,
                             size: 32.r,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -120,7 +132,7 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                   controller: titleController,
                   decoration: InputDecoration(
                     labelText: AppStrings.tournamentTitle,
-                    labelStyle: TextStyle(fontSize: 14),
+                    labelStyle: TextStyle(fontSize: 14.sp),
                   ),
                 ),
 
@@ -133,7 +145,11 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                       fontWeight: FontWeight.w500,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => pickImage((file) {
+                        setState(() {
+                          _logoImageFile = file;
+                        });
+                      }),
                       child: Container(
                         height: 20.h,
                         width: 80.w,
@@ -153,61 +169,35 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                     ),
                   ],
                 ),
+                if (_logoImageFile != null)
+                  Padding(
+                    padding: EdgeInsets.only(top: 12.h),
+                    child: ImagePreviewBox(
+                      imageFile: _logoImageFile!,
+                      onRemove: () => setState(() => _logoImageFile = null),
+                    ),
+                  ),
+
                 SizedBox(height: 32.h),
                 CustomText(
                   textAlign: TextAlign.left,
                   text: AppStrings.masjidORCommunity,
                   fontWeight: FontWeight.w500,
                 ),
-
-                CustomDropdownMenu(
-                  options: [AppStrings.community1, AppStrings.community2],
-                  hint: AppStrings.selectMasjidORCommunity,
-                  selectedValue: selectedContactMethod,
-                  onSelected: (value) {
-                    setState(() {
-                      selectedContactMethod = value;
-                    });
-                  },
-                ),
-
                 SizedBox(height: 16.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: InkWell(
-                        onTap: () => _pickDate(context),
+                CustomDropdownMenu(
+                  hint: AppStrings.selectMasjidORCommunity,
+                  options: [AppStrings.community1, AppStrings.community2],
+                  selectedValue: selectedContactMethod,
+                  isUnderlineStyle: true,
+                  isCircularBorderStyle: false,
+                  onSelected: (val) =>
+                      setState(() => selectedContactMethod = val),
+                ),
 
-                        child: InputDecorator(
-                          decoration: InputDecoration(
-                            labelText: AppStrings.day1,
-                            labelStyle: TextStyle(fontSize: 16.sp),
-                          ),
-                          child: Text(
-                            DateFormat('MM-dd-yyyy').format(selectedDate),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.h),
-                Container(
-                  height: 40.h,
-                  width: 125.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10.r),
-                    border: Border.all(color: AppColors.mediumGray),
-                  ),
-                  child: Center(
-                    child: CustomText(
-                      textAlign: TextAlign.center,
-                      text: AppStrings.addAnotherDay,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
+                SizedBox(height: 12.h),
+
+                DynamicDateFieldList(),
 
                 SizedBox(height: 38.h),
                 Row(
@@ -221,7 +211,7 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          Get.back();
                         },
                         child: CustomText(
                           textAlign: TextAlign.left,
@@ -238,7 +228,15 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.secPrimary,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                          SnackbarHelper.show(
+                            message: 'Tournament created, ready to go!',
+                            backgroundColor: AppColors.primary,
+                            textColor: AppColors.white,
+                            isSuccess: true,
+                          );
+                        },
                         child: CustomText(
                           textAlign: TextAlign.left,
                           text: AppStrings.next,

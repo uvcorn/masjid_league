@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:mojid/utils/app_strings/app_strings.dart';
 import 'package:mojid/views/components/custom_text/custom_text.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/app_colors/app_colors.dart';
@@ -28,13 +29,14 @@ class SnackbarHelper {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(selectedIcon, color: textColor),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Flexible(
                     child: Text(
                       message,
                       style: TextStyle(
                         color: textColor,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
                       ),
                     ),
                   ),
@@ -53,15 +55,18 @@ class SnackbarHelper {
                       fontSize: 14,
                     ),
                   ),
-                const SizedBox(height: 4),
-                Text(message, style: TextStyle(color: textColor, fontSize: 13)),
+                SizedBox(height: 4.h),
+                Text(
+                  message,
+                  style: TextStyle(color: textColor, fontSize: 14.sp),
+                ),
               ],
             ),
       backgroundColor: bgColor,
       duration: duration,
       snackPosition: position,
-      margin: const EdgeInsets.all(12),
-      borderRadius: 10,
+      margin: EdgeInsets.all(12.r),
+      borderRadius: 10.r,
     );
   }
 }

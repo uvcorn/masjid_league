@@ -152,13 +152,13 @@ class AppStrings {
       'All information can be changed later.';
   static const String addACoverPhotoForTheTournament =
       'Add a cover photo for the tournament';
-  static const String day1 = 'Day 1';
+  static const String day = 'Day';
   static const String addAnotherDay = 'Add Another Day';
   static const String cancel = 'Cancel';
   static const String next = 'Next';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String camera = 'Camera';
+  static const String gallery = 'Gallery';
+  static const String selectImageSource = 'Select Image Source';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
