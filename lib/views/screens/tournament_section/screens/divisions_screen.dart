@@ -8,7 +8,7 @@ import '../../../components/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../../components/bottom_nav_bar/bottom_nav_controller.dart';
 import '../../../components/custom_text/custom_text.dart';
 import '../../../components/reusable_button_row/reusable_button_row.dart';
-import '../widgets/dynamic_venue_field_list.dart';
+import '../widgets/dynamic_text_field_list.dart';
 
 class DivisionsScreen extends StatefulWidget {
   const DivisionsScreen({super.key});

@@ -6,10 +6,10 @@ import '../../../components/custom_text/custom_text.dart';
 import '../../../components/snackbar_helper/snackbar_helper.dart';
 
 class DynamicTextFieldList extends StatefulWidget {
-  final String fieldLabel; // e.g. 'Venue', 'Division'
+  final String fieldLabel;
   final List<String> initialValues;
-  final int minFields; // minimum number of fields to keep (default 1)
-  final String addAnotherLabel; // e.g. 'Add Another Venue'
+  final int minFields;
+  final String addAnotherLabel;
 
   const DynamicTextFieldList({
     super.key,
@@ -68,34 +68,31 @@ class _DynamicTextFieldListState extends State<DynamicTextFieldList> {
               ? widget.fieldLabel
               : '${widget.fieldLabel} ${index + 1}';
 
-          return Padding(
-            padding: EdgeInsets.only(bottom: 16.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                  textAlign: TextAlign.left,
-                  text: label,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12.sp,
-                  color: AppColors.mediumGray,
-                ),
-                TextField(
-                  controller: controllers[index],
-                  decoration: InputDecoration(
-                    border: const UnderlineInputBorder(),
-                    suffixIcon: GestureDetector(
-                      onTap: () => _removeField(index),
-                      child: Icon(
-                        Icons.delete,
-                        size: 24.r,
-                        color: AppColors.black,
-                      ),
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(
+                textAlign: TextAlign.left,
+                text: label,
+                fontWeight: FontWeight.w500,
+                fontSize: 12.sp,
+                color: AppColors.mediumGray,
+              ),
+              TextField(
+                controller: controllers[index],
+                decoration: InputDecoration(
+                  border: const UnderlineInputBorder(),
+                  suffixIcon: GestureDetector(
+                    onTap: () => _removeField(index),
+                    child: Icon(
+                      Icons.delete,
+                      size: 24.r,
+                      color: AppColors.black,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         }),
 

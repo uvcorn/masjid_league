@@ -116,7 +116,7 @@ class _RegisterCommunityScreenState extends State<RegisterCommunityScreen> {
                               ),
                               CustomText(
                                 textAlign: TextAlign.start,
-                                text: AppStrings.format,
+                                text: AppStrings.formatKnockout,
 
                                 color: AppColors.mediumGray,
                               ),

@@ -11,4 +11,5 @@ class AppIcons {
 
   ///====================== Inner =========================
   static const String bell = "$basePath/bell.svg";
+  static const String formate = "$basePath/formate.png";
 }

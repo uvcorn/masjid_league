@@ -25,7 +25,7 @@ class CreateNewTournament extends StatefulWidget {
 
 class _CreateNewTournamentState extends State<CreateNewTournament> {
   DateTime selectedDate = DateTime.now();
-  String? selectedContactMethod;
+  String? selectedCommunity;
   List<DateTime> selectedDates = [DateTime.now()];
   List<TextEditingController> dateControllers = [TextEditingController()];
   final titleController = TextEditingController();
@@ -189,11 +189,10 @@ class _CreateNewTournamentState extends State<CreateNewTournament> {
                 CustomDropdownMenu(
                   hint: AppStrings.selectMasjidORCommunity,
                   options: [AppStrings.community1, AppStrings.community2],
-                  selectedValue: selectedContactMethod,
+                  selectedValue: selectedCommunity,
                   isUnderlineStyle: true,
                   isCircularBorderStyle: false,
-                  onSelected: (val) =>
-                      setState(() => selectedContactMethod = val),
+                  onSelected: (val) => setState(() => selectedCommunity = val),
                 ),
 
                 SizedBox(height: 12.h),

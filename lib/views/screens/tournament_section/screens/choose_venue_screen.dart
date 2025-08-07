@@ -7,7 +7,7 @@ import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_text/custom_text.dart';
 import '../../../components/reusable_button_row/reusable_button_row.dart';
-import '../widgets/dynamic_venue_field_list.dart';
+import '../widgets/dynamic_text_field_list.dart';
 
 class ChooseVenueScreen extends StatefulWidget {
   const ChooseVenueScreen({super.key});

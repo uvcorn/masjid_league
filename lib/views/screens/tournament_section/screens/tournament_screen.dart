@@ -6,14 +6,11 @@ import 'package:get/get.dart';
 
 import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
-import '../../../../utils/app_const/app_const.dart';
-import '../../../../utils/app_images/app_images.dart';
 import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_app_bar/custom_app_bar.dart';
-import '../../../components/custom_image/custom_image.dart';
-import '../../../components/custom_network_image/custom_network_image.dart';
-import '../../../components/custom_popup_menu_button/custom_popup_menu_button.dart';
 import '../../../components/custom_text/custom_text.dart';
+import '../widgets/tournament_date_info.dart';
+import '../widgets/tournament_image_and_details.dart';
 
 class TournamentScreen extends StatefulWidget {
   const TournamentScreen({super.key});
@@ -51,129 +48,28 @@ class _TournamentScreenState extends State<TournamentScreen> {
               SizedBox(height: 12.h),
 
               // Tournament Card
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.black.withOpacity(0.1),
-                      blurRadius: 4.r,
-                      offset: Offset(0.r, 3.r),
-                    ),
-                  ],
-                  color: Colors.white,
-                ),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        // Image with overlay
-                        ClipRRect(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(12.r),
-                          ),
-                          child: Stack(
-                            children: [
-                              CustomNetworkImage(
-                                imageUrl: AppConstants.footballLandscape,
-                                height: 190.h,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
-                              Container(
-                                height: 190.h,
-                                width: double.infinity,
-                                color: AppColors.secPrimary.withOpacity(0.5),
-                              ),
-                              Positioned(
-                                top: 8,
-                                right: 8,
-                                child: CustomPopupMenuButton(
-                                  items: [
-                                    'Copy Tournament (with Team)',
-                                    'Copy Tournament (without Team)',
-                                    'Delete Tournament',
-                                  ],
-                                  onChanged: (selectedItem) {
-                                    // handle
-                                  },
-                                  icons: Icons.more_vert,
-                                  iconColor: AppColors.white,
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 12,
-                                left: 12,
-                                right: 12,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    CustomImage(
-                                      imageSrc: AppImages.communityLogo,
-                                      size: 50.r,
-                                    ),
-                                    SizedBox(width: 8.w),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          CustomText(
-                                            text: AppStrings.tournamentName,
-                                            color: Colors.white,
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          CustomText(
-                                            text: AppStrings.tournamentDate,
-                                            color: Colors.white,
-                                            fontSize: 20.sp,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-
-                                          SizedBox(height: 4.h),
-                                          CustomText(
-                                            text: AppStrings.byHost,
-                                            color: Colors.white,
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      height: 52,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12.r),
-                          bottomRight: Radius.circular(12.r),
-                        ),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppRoutes.tournamentDetailsScreen);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.black.withOpacity(0.1),
+                        blurRadius: 4.r,
+                        offset: Offset(0.r, 3.r),
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 16.h,
-                        ),
-                        child: CustomText(
-                          textAlign: TextAlign.left,
-                          text: AppStrings.detailDate,
-                          color: AppColors.black,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      TournamentImageAndDetails(),
+                      TournamentDateInfo(),
+                    ],
+                  ),
                 ),
               ),
 
