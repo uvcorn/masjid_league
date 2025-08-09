@@ -217,21 +217,25 @@ class AppStrings {
   static const String results = 'Results';
   static const String format = 'Format';
   static const String promote = 'Promote';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String uploadACoverPhoto =
+      'Upload A Cover Photo/Video for your promotion';
+  static const String youArePromotingYourTournament =
+      'You are promoting your tournament';
+  static const String budget = 'Budget';
+  static const String length = 'Length';
+  static const String payNow = 'Pay Now';
+  static const String payment = 'Payment';
+  static const String confirm = 'Confirm';
+  static const String eMail = 'e.g. name@email.com';
+  static const String cardNumber = 'Card number';
+  static const String expiration = 'Expiration';
+  static const String monthAndYear = 'MM/YY';
+  static const String cardNumbers = '1234 1234 1234 1234';
+  static const String cvc = 'CVC';
+  static const String continueA = 'Continue';
+  static const String paymentMessage =
+      'Payment of monthly plan \$75.00 has paid successfully';
+  static const String promotionSuccessful = 'Promotion successful';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

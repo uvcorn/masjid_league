@@ -1,10 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:mojid/utils/app_strings/app_strings.dart';
-import 'package:mojid/views/components/custom_text/custom_text.dart';
 import '../../../../utils/app_colors/app_colors.dart';
-import '../../../../utils/app_images/app_images.dart';
+import '../../../../utils/app_const/app_const.dart';
+import '../../../../utils/app_strings/app_strings.dart';
+import '../../../components/custom_network_image/custom_network_image.dart';
+import '../../../components/custom_text/custom_text.dart';
 
 class ImageSlider extends StatefulWidget {
   const ImageSlider({super.key});
@@ -18,9 +19,9 @@ class _ImageSliderState extends State<ImageSlider> {
   int _currentPage = 0;
 
   final List<String> sliderImages = [
-    AppImages.footballMatch1,
-    AppImages.footballMatch2,
-    AppImages.footballMatch1,
+    AppConstants.footballLandscape,
+    AppConstants.footballLandscape2,
+    AppConstants.footballLandscape,
   ];
 
   @override
@@ -97,7 +98,10 @@ class _ImageSliderState extends State<ImageSlider> {
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
-                        Image.asset(sliderImages[index], fit: BoxFit.cover),
+                        CustomNetworkImage(
+                          imageUrl: sliderImages[index],
+                          fit: BoxFit.cover,
+                        ),
                         Container(
                           color: AppColors.secPrimary.withOpacity(
                             _currentPage == index ? 0.5 : 0.7,

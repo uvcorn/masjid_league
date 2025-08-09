@@ -1,82 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../../../core/app_routes/app_routes.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_strings/app_strings.dart';
-import '../../../components/custom_dropdown_menu/custom_dropdown_menu.dart';
 import '../../../components/custom_text/custom_text.dart';
-
-class CustomStepper extends StatelessWidget {
-  final int currentStep;
-  final List<String> labels;
-
-  const CustomStepper({
-    super.key,
-    required this.currentStep,
-    required this.labels,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 212.w,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 24.r,
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 12.w,
-                  right: 12.w,
-                  top: 11.r,
-                  child: Container(
-                    height: 2.h,
-                    color: AppColors.mediumGray.withOpacity(0.5),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(labels.length, (index) {
-                    bool isCompleted = index < currentStep;
-                    bool isActive = index == currentStep;
-                    Color stepColor = isCompleted || isActive
-                        ? AppColors.greenish
-                        : AppColors.greenish;
-
-                    return Container(
-                      width: 24.r,
-                      height: 24.r,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: stepColor,
-                        border: Border.all(color: stepColor, width: 2.r),
-                      ),
-                      child: isCompleted
-                          ? Icon(Icons.check, size: 20.r, color: Colors.white)
-                          : null,
-                    );
-                  }),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 8.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(labels.length, (index) {
-              return CustomText(
-                text: labels[index],
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-              );
-            }),
-          ),
-        ],
-      ),
-    );
-  }
-}
+import '../widgets/custom_stepper.dart';
 
 class PromoteScreen extends StatefulWidget {
   const PromoteScreen({super.key});
@@ -126,7 +55,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
               ),
               SizedBox(height: 24.h),
               CustomText(
-                text: 'Upload A Cover Photo/Video for your promotion',
+                text: AppStrings.uploadACoverPhoto,
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
               ),
@@ -148,7 +77,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                     ),
                     SizedBox(height: 8.h),
                     CustomText(
-                      text: 'Upload',
+                      text: AppStrings.upload,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: AppColors.mediumGray,
@@ -158,14 +87,14 @@ class _PromoteScreenState extends State<PromoteScreen> {
               ),
               SizedBox(height: 24.h),
               CustomText(
-                text: 'You are promoting your tournament',
+                text: AppStrings.youArePromotingYourTournament,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
                 color: AppColors.mediumGray,
               ),
               SizedBox(height: 24.h),
               CustomText(
-                text: 'Budget',
+                text: AppStrings.budget,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
@@ -190,7 +119,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
 
               SizedBox(height: 24.h),
               CustomText(
-                text: 'Length',
+                text: AppStrings.length,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
@@ -214,7 +143,9 @@ class _PromoteScreenState extends State<PromoteScreen> {
                 width: double.infinity,
                 height: 50.h,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.paymentScreen);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.secPrimary,
                     shape: RoundedRectangleBorder(
@@ -222,7 +153,7 @@ class _PromoteScreenState extends State<PromoteScreen> {
                     ),
                   ),
                   child: CustomText(
-                    text: 'Pay Now',
+                    text: AppStrings.payNow,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,

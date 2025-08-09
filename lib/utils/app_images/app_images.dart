@@ -11,5 +11,7 @@ class AppImages {
 
   static const String tournament1 = "$basePath/tournament1.png";
 
+  static const String creditCard = "$basePath/visa.png";
+
   ///====================== Inner =========================
 }
