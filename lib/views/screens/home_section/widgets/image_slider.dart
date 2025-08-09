@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../../../../utils/app_const/app_const.dart';
 import '../../../../utils/app_strings/app_strings.dart';
@@ -86,15 +87,15 @@ class _ImageSliderState extends State<ImageSlider> {
                       width:
                           Curves.easeOut.transform(scale) *
                           MediaQuery.of(context).size.width *
-                          _pageController.viewportFraction,
+                          _pageController.viewportFraction.w,
                       child: child,
                     ),
                   );
                 },
                 child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                  margin: EdgeInsets.symmetric(horizontal: 8.0.w),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
@@ -134,8 +135,8 @@ class _ImageSliderState extends State<ImageSlider> {
           ),
 
           Positioned(
-            left: 10,
-            top: 80, // Center vertically
+            left: 10.w,
+            top: 80.h, // Center vertically
             child: IconButton(
               icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
               onPressed: _previousPage,
@@ -143,8 +144,8 @@ class _ImageSliderState extends State<ImageSlider> {
           ),
 
           Positioned(
-            right: 10,
-            top: 80, // Center vertically
+            right: 10.w,
+            top: 80.h, // Center vertically
             child: IconButton(
               icon: const Icon(Icons.arrow_forward_ios, color: Colors.white),
               onPressed: _nextPage,

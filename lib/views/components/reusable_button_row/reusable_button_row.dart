@@ -41,7 +41,7 @@ class ReusableButtonRow extends StatelessWidget {
         Expanded(
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-              side: BorderSide(color: cancelTextColor, width: 1.5),
+              side: BorderSide(color: cancelTextColor, width: 1.5.w),
               backgroundColor: cancelButtonColor,
             ),
             onPressed: onCancelPressed,

@@ -24,8 +24,6 @@ class GeneralScreen extends StatefulWidget {
 
 class _GeneralScreenState extends State<GeneralScreen> {
   bool switchDescription = false;
-  // Remove the GlobalKey, as it's not needed here
-  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -210,14 +208,14 @@ class _GeneralScreenState extends State<GeneralScreen> {
 
           SizedBox(height: 24.h),
 
-          const CustomText(
+          CustomText(
             text: AppStrings.points,
             fontWeight: FontWeight.w500,
             fontSize: 14,
             textAlign: TextAlign.left,
           ),
           SizedBox(height: 12.h),
-          const CustomText(
+          CustomText(
             text: AppStrings.pointsDescription,
             fontSize: 12,
             fontWeight: FontWeight.w400,

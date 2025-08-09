@@ -42,9 +42,7 @@ class CommonBottomSheet extends StatelessWidget {
             return Container(
               decoration: BoxDecoration(
                 color: AppColors.white,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(24),
-                ),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
               ),
               child: Column(
                 children: [
@@ -62,7 +60,7 @@ class CommonBottomSheet extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 8),
+                        SizedBox(height: 8.h),
                         if (title != null)
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.h),
@@ -82,10 +80,10 @@ class CommonBottomSheet extends StatelessWidget {
                   if (showDivider)
                     Divider(
                       height: 0,
-                      thickness: 1,
+                      thickness: 1.w,
                       color: AppColors.lightGray,
-                      indent: 16,
-                      endIndent: 16,
+                      indent: 16.w,
+                      endIndent: 16.w,
                     ),
                   if (title != null || showDivider) SizedBox(height: 8.h),
 

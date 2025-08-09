@@ -76,7 +76,11 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
                     Tab(text: AppStrings.manager),
                   ],
                 ),
-                Divider(color: AppColors.lightGray, height: 1.h, thickness: 1),
+                Divider(
+                  color: AppColors.lightGray,
+                  height: 1.h,
+                  thickness: 1.w,
+                ),
               ],
             ),
             SizedBox(height: 16.h),
@@ -145,11 +149,9 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
                 ),
                 SizedBox(height: 24.h),
                 SizedBox(
-                  width: 170,
+                  width: 170.w,
                   child: CustomButton(
-                    onTap: () {
-                      // Navigate to add team screen or show a dialog
-                    },
+                    onTap: () {},
                     text: AppStrings.addATeam,
                     fontSize: 16,
                   ),
@@ -207,13 +209,13 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
                 ),
                 SizedBox(height: 24.h),
                 SizedBox(
-                  width: 170,
+                  width: 170.w,
                   child: CustomButton(
                     onTap: () {
                       // Navigate to add team screen or show a dialog
                     },
                     text: AppStrings.addAReferee,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                   ),
                 ),
               ],
@@ -265,7 +267,7 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
                 ),
                 SizedBox(height: 24.h),
                 SizedBox(
-                  width: 200,
+                  width: 200.w,
                   child: CustomButton(
                     onTap: () {
                       // Navigate to add team screen or show a dialog

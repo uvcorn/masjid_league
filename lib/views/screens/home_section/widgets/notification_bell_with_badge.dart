@@ -36,7 +36,7 @@ class NotificationBellWithBadge extends StatelessWidget {
             width: 32.w,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: bellColor, width: 1.5),
+              border: Border.all(color: bellColor, width: 1.5.w),
             ),
             child: CustomImage(imageSrc: AppIcons.bell, fit: BoxFit.fill),
           ),
@@ -46,8 +46,8 @@ class NotificationBellWithBadge extends StatelessWidget {
               right: badgeOffsetDx,
               top: badgeOffsetDy,
               child: Container(
-                width: badgeRadius * 2,
-                height: badgeRadius * 2,
+                width: badgeRadius * 2.w,
+                height: badgeRadius * 2.h,
                 decoration: BoxDecoration(
                   color: badgeColor,
                   shape: BoxShape.circle,

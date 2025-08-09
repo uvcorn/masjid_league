@@ -15,7 +15,7 @@ class TournamentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 92,
+      height: 92.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.primary,

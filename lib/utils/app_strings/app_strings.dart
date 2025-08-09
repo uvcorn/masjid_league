@@ -254,9 +254,9 @@ class AppStrings {
       'Administrators can help you manage this';
   static const String tournament = 'tournament';
   static const String addAnAdministrator = 'Add an Administrator';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String resultsScreen = 'Results Screen';
+  static const String scheduleScreen = 'Schedule Screen';
+  static const String formatScreen = 'Format Screen';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

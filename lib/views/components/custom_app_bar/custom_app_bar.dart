@@ -43,7 +43,7 @@ class CustomAppBar extends StatelessWidget {
               notificationCount: notificationCount,
               bellColor: AppColors.secPrimary,
               badgeColor: AppColors.red,
-              badgeRadius: 4.0,
+              badgeRadius: 4.0.r,
               badgeOffsetDx: 6.0,
               badgeOffsetDy: 5.0,
               onTap: onNotificationTap,
@@ -52,14 +52,14 @@ class CustomAppBar extends StatelessWidget {
         ),
         SizedBox(height: 24.h),
         Container(
-          height: 60,
+          height: 60.h,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
                 color: AppColors.black.withOpacity(0.1),
                 offset: Offset(4, 1),
-                blurRadius: 10,
-                spreadRadius: -4,
+                blurRadius: 10.r,
+                spreadRadius: -4.r,
               ),
             ],
           ),

@@ -28,7 +28,7 @@ class DayItemCard extends StatelessWidget {
     return GestureDetector(
       onTap: onEdit,
       child: Container(
-        height: 60,
+        height: 60.h,
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: AppColors.white,

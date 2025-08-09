@@ -4,6 +4,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomNetworkImage extends StatelessWidget {
@@ -43,8 +44,8 @@ class CustomNetworkImage extends StatelessWidget {
     if (imageUrl.isEmpty) {
       // Return a fallback widget if imageUrl is empty
       return Container(
-        height: resolvedHeight,
-        width: resolvedWidth,
+        height: resolvedHeight.h,
+        width: resolvedWidth.w,
         decoration: BoxDecoration(
           border: border,
           borderRadius: borderRadius,

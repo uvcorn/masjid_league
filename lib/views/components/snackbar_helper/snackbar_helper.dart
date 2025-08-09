@@ -52,7 +52,7 @@ class SnackbarHelper {
                     style: TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: 14.sp,
                     ),
                   ),
                 SizedBox(height: 4.h),

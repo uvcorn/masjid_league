@@ -32,23 +32,23 @@ class _CustomSliderState extends State<CustomSlider> {
     return Stack(
       children: [
         Container(
-          width: widget.currentWidth ?? MediaQuery.sizeOf(context).width / 3,
-          height: widget.height ?? 7.w,
+          width: widget.currentWidth ?? MediaQuery.sizeOf(context).width / 3.w,
+          height: widget.height ?? 7.h,
           decoration: BoxDecoration(
             color: Colors.grey,
             borderRadius: BorderRadius.circular(10),
           ),
         ),
         Container(
-          height: widget.height ?? 7.w,
-          width: width,
+          height: widget.height ?? 7.h,
+          width: width.w,
           decoration: BoxDecoration(
             color: widget.currentValue == null || widget.currentValue == 0
                 ? Colors.grey
                 : AppColors.primary,
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(10),
-              topLeft: Radius.circular(10),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(10.r),
+              topLeft: Radius.circular(10.r),
             ),
           ),
         ),
@@ -67,7 +67,7 @@ class _CustomSliderState extends State<CustomSlider> {
       double mediaHight =
           widget.currentWidth ?? MediaQuery.sizeOf(context).width / 3;
 
-      width = mediaHight / percent;
+      width = mediaHight / percent.w;
 
       setState(() {});
     }

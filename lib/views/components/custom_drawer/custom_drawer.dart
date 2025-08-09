@@ -49,15 +49,15 @@ class CustomDrawer extends StatelessWidget {
       if (item.imagePath!.toLowerCase().endsWith('.svg')) {
         return SvgPicture.asset(
           item.imagePath!,
-          width: size,
-          height: size,
+          width: size.w,
+          height: size.h,
           colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
         );
       } else {
-        return CustomImage(imageSrc: item.imagePath!, size: size);
+        return CustomImage(imageSrc: item.imagePath!, size: size.r);
       }
     }
-    return SizedBox(width: size, height: size);
+    return SizedBox(width: size.w, height: size.w);
   }
 
   @override
@@ -101,7 +101,7 @@ class CustomDrawer extends StatelessWidget {
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
                 ),
-                Divider(color: AppColors.primary, thickness: 1, height: 16.h),
+                Divider(color: AppColors.primary, thickness: 1.w, height: 16.h),
 
                 /// 📜 Drawer Items
                 Expanded(

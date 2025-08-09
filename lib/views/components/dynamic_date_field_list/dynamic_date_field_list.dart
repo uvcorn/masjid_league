@@ -108,7 +108,10 @@ class _DynamicDateFieldListState extends State<DynamicDateFieldList> {
                     contentPadding: EdgeInsets.fromLTRB(0.w, 12.h, 0.w, 8.h),
                     isDense: true,
                     enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.black, width: 1),
+                      borderSide: BorderSide(
+                        color: AppColors.black,
+                        width: 1.w,
+                      ),
                     ),
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(

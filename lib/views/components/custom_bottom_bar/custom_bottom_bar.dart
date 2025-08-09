@@ -122,7 +122,7 @@ class CustomBottomBar extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: AppColors.black.withOpacity(0.1),
-            blurRadius: 15,
+            blurRadius: 15.r,
             offset: Offset(0, -5),
           ),
         ],

@@ -49,7 +49,7 @@ class CustomDropdownMenu extends StatelessWidget {
     final boxDecoration = isCircularBorderStyle
         ? BoxDecoration(
             color: backgroundColor,
-            border: Border.all(color: borderColor, width: borderWidth),
+            border: Border.all(color: borderColor, width: borderWidth.w),
             borderRadius: BorderRadius.circular(borderRadius.r),
           )
         : null;

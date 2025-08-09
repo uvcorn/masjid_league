@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCheckbox extends StatefulWidget {
   final bool? showCheckbox;
@@ -86,7 +87,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ),
-              SizedBox(width: widget.checkboxLabelSpacing),
+              SizedBox(width: widget.checkboxLabelSpacing.w),
               Transform.translate(
                 offset: const Offset(-8.0, 0.0),
                 child: Text(
@@ -101,7 +102,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
         ),
 
         if (!widget.useSpaceBetweenAlignment && !widget.centerAlignment)
-          const SizedBox(width: 0),
+          SizedBox(width: 0.w),
 
         if (widget.useSpaceBetweenAlignment) const Spacer(),
 

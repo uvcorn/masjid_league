@@ -12,7 +12,7 @@ class LanguageChoose extends StatelessWidget {
       children: [
         CustomText(text: 'AR', fontSize: 14.sp, fontWeight: FontWeight.w400),
         SizedBox(width: 6.w),
-        Container(height: 16.h, width: 2, color: AppColors.black),
+        Container(height: 16.h, width: 2.w, color: AppColors.black),
         SizedBox(width: 6.w),
         Container(
           height: 34,

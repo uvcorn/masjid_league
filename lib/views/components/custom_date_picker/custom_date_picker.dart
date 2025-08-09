@@ -15,7 +15,9 @@ Future<void> showCustomDatePicker({
     builder: (context) {
       return Dialog(
         backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.r),
+        ),
         child: StatefulBuilder(
           builder: (context, setState) {
             return Theme(
@@ -53,16 +55,16 @@ Future<void> showCustomDatePicker({
                       children: [
                         Text(
                           DateFormat('y').format(tempPickedDate),
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
+                            fontSize: 14.sp,
                           ),
                         ),
                         Text(
                           DateFormat('EEE, MMM d').format(tempPickedDate),
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 20.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

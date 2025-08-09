@@ -33,7 +33,7 @@ void showRegisterDialog(BuildContext context) {
               vertical: 16.h,
             ),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
             ),
             content: SingleChildScrollView(
               child: Column(
@@ -97,7 +97,7 @@ void showRegisterDialog(BuildContext context) {
                     hintTextColor: AppColors.mediumGray,
                     borderColor: AppColors.mediumGray,
                     selectedValue: selectedContactMethod,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     onSelected: (value) {
                       setState(() {
                         selectedContactMethod = value;
@@ -125,7 +125,7 @@ void showRegisterDialog(BuildContext context) {
                       SizedBox(height: 8.h),
                       ...sports.map(
                         (sport) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 0.0),
+                          padding: EdgeInsets.symmetric(vertical: 0.0.h),
                           child: CustomCheckbox(
                             showCheckbox: true,
                             value: selectedSports[sport],
@@ -137,7 +137,7 @@ void showRegisterDialog(BuildContext context) {
                             leadingText: sport,
                             leadingTextStyle: TextStyle(
                               color: AppColors.black,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
                             clickableText: '',
@@ -164,7 +164,7 @@ void showRegisterDialog(BuildContext context) {
                         backgroundColor: AppColors.primary,
                         padding: EdgeInsets.symmetric(vertical: 14.h),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.r),
                         ),
                       ),
                       onPressed: () {

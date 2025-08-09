@@ -10,7 +10,7 @@ class AppTheme {
       textTheme: _textTheme.apply(),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          side: BorderSide(color: AppColors.secPrimary, width: 1.5),
+          side: BorderSide(color: AppColors.secPrimary, width: 1.5.w),
           foregroundColor: AppColors.primary,
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
           shape: RoundedRectangleBorder(
@@ -23,7 +23,9 @@ class AppTheme {
           backgroundColor: AppColors.primary,
           foregroundColor: AppColors.white,
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
           textStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -37,7 +39,7 @@ class AppTheme {
         color: AppColors.black,
       ),
       headlineMedium: GoogleFonts.tiltWarp(
-        fontSize: 24,
+        fontSize: 24.sp,
         color: AppColors.black,
       ),
       headlineSmall: GoogleFonts.roboto(

@@ -77,8 +77,8 @@ class _RegisterCommunityScreenState extends State<RegisterCommunityScreen> {
                                   child: CustomNetworkImage(
                                     imageUrl: AppConstants.footballLandscape,
                                     fit: BoxFit.cover,
-                                    height: 220,
-                                    width: 320,
+                                    height: 220.h,
+                                    width: 320.w,
                                   ),
                                 ),
                               ],

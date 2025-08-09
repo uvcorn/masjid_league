@@ -85,10 +85,10 @@ class ActionButton extends StatelessWidget {
         // Add a right-side placeholder for symmetry
         if (hasIcon)
           SizedBox(
-            width: 16 + 24 + iconTextSpacing,
+            width: 16 + 24 + iconTextSpacing.w,
           ) // left padding + icon + spacing
         else
-          const SizedBox(width: 16),
+          SizedBox(width: 16.w),
       ],
     );
 
@@ -128,6 +128,6 @@ class ActionButton extends StatelessWidget {
       ),
     };
 
-    return SizedBox(width: width, height: height, child: button);
+    return SizedBox(width: width.w, height: height.h, child: button);
   }
 }

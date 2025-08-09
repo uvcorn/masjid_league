@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../utils/app_colors/app_colors.dart';
 
@@ -41,7 +42,7 @@ class InputBar extends StatelessWidget {
             decoration: decoration,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: 8.w),
         IconButton(
           icon: const Icon(
             Icons.sentiment_satisfied_alt_outlined,
@@ -56,7 +57,7 @@ class InputBar extends StatelessWidget {
 
         IconButton(icon: Icon(Icons.image), onPressed: onImagePressed),
 
-        const SizedBox(width: 4),
+        SizedBox(width: 4.w),
 
         if (hasText)
           IconButton(

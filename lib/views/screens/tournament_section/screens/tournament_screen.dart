@@ -80,11 +80,11 @@ class _TournamentScreenState extends State<TournamentScreen> {
                   Get.toNamed(AppRoutes.createNewTournament);
                 },
                 child: Container(
-                  height: 80,
+                  height: 80.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(color: AppColors.secPrimary),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Center(
                     child: CustomText(

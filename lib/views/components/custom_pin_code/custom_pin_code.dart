@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../utils/app_colors/app_colors.dart';
@@ -19,7 +20,7 @@ class _CustomPinCodeState extends State<CustomPinCode> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0),
+      padding: EdgeInsets.symmetric(horizontal: 0.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,15 +35,15 @@ class _CustomPinCodeState extends State<CustomPinCode> {
             keyboardType: TextInputType.number,
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               activeColor: Colors.grey.shade200,
               inactiveColor: Colors.grey.shade200,
               selectedColor: Colors.grey.shade200,
               activeFillColor: Colors.white,
               inactiveFillColor: Colors.white,
               selectedFillColor: Colors.white,
-              fieldWidth: 70,
-              fieldHeight: 60,
+              fieldWidth: 70.w,
+              fieldHeight: 60.w,
             ),
             appContext: context,
             onChanged: (value) {
@@ -70,10 +71,10 @@ class _CustomPinCodeState extends State<CustomPinCode> {
             },
           ),
           if (_errorMessage != null) ...[
-            const SizedBox(height: 2),
+            SizedBox(height: 2.h),
             Text(
               _errorMessage!,
-              style: TextStyle(color: AppColors.red, fontSize: 14),
+              style: TextStyle(color: AppColors.red, fontSize: 14.sp),
             ),
           ],
         ],

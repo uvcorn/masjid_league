@@ -117,7 +117,7 @@ class _PostUpdateScreenState extends State<PostUpdateScreen> {
                     controller: titleController,
                     decoration: InputDecoration(
                       labelText: AppStrings.titleUpdate,
-                      labelStyle: TextStyle(fontSize: 14),
+                      labelStyle: TextStyle(fontSize: 14.sp),
                     ),
                   ),
                   SizedBox(height: 24.h),
@@ -130,7 +130,7 @@ class _PostUpdateScreenState extends State<PostUpdateScreen> {
                     controller: detailsController,
                     decoration: InputDecoration(
                       labelText: AppStrings.details,
-                      labelStyle: TextStyle(fontSize: 14),
+                      labelStyle: TextStyle(fontSize: 14.sp),
                     ),
                   ),
                   SizedBox(height: 20.h),

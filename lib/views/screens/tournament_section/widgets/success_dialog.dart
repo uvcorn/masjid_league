@@ -15,7 +15,7 @@ class SuccessDialog extends StatelessWidget {
       backgroundColor: AppColors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Padding(
-        padding: EdgeInsets.all(24.w),
+        padding: EdgeInsets.all(24.r),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -25,7 +25,7 @@ class SuccessDialog extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               padding: EdgeInsets.all(16.w),
-              child: const Icon(Icons.check, size: 40, color: Colors.white),
+              child: Icon(Icons.check, size: 40.r, color: Colors.white),
             ),
             SizedBox(height: 20.h),
             CustomText(

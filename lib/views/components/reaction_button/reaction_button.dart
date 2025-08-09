@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../utils/app_colors/app_colors.dart';
 import '../custom_image/custom_image.dart';
 
@@ -27,11 +28,11 @@ class ReactionButton extends StatelessWidget {
           onTap: onIconTap,
           child: CustomImage(
             imageSrc: iconPath,
-            size: 24,
+            size: 24.r,
             imageColor: color ?? AppColors.mediumGray,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: 8.w),
         GestureDetector(
           onTap: onCountTap,
           child: Text(
