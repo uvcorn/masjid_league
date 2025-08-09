@@ -11,12 +11,12 @@ import '../../views/screens/home_section/screens/register_community_screen.dart'
 import '../../views/screens/onboarding/onbording_screen.dart';
 import '../../views/screens/onboarding/welcome_screen.dart';
 import '../../views/screens/splash_screen/splash_screens.dart';
+import '../../views/screens/tournament_drawer_section/screens/tournament_drawer_main_screen.dart';
 import '../../views/screens/tournament_section/screens/choose_venue_screen.dart';
 import '../../views/screens/tournament_section/screens/create_new_tournament.dart';
 import '../../views/screens/tournament_section/screens/divisions_screen.dart';
 import '../../views/screens/tournament_section/screens/payment_screen.dart';
 import '../../views/screens/tournament_section/screens/promote_screen.dart';
-import '../../views/screens/tournament_section/screens/tournament_details_Screen.dart';
 
 class AppRoutes {
   ///===========================Splash & Onboarding==========================
@@ -40,7 +40,8 @@ class AppRoutes {
   static const String createNewTournament = "/CreateNewTournament";
   static const String chooseVenueScreen = "/ChooseVenueScreen";
   static const String divisionsScreen = "/DivisionsScreen";
-  static const String tournamentDetailsScreen = "/TournamentDetailsScreen";
+  static const String tournamentDrawerMainScreen =
+      "/TournamentDrawerMainScreen";
   static const String promoteScreen = "/PromoteScreen";
   static const String paymentScreen = "/PaymentScreen";
 
@@ -71,8 +72,8 @@ class AppRoutes {
     GetPage(name: chooseVenueScreen, page: () => ChooseVenueScreen()),
     GetPage(name: divisionsScreen, page: () => DivisionsScreen()),
     GetPage(
-      name: tournamentDetailsScreen,
-      page: () => TournamentDetailsScreen(),
+      name: tournamentDrawerMainScreen,
+      page: () => TournamentDrawerMainScreen(),
     ),
     GetPage(name: promoteScreen, page: () => PromoteScreen()),
     GetPage(name: paymentScreen, page: () => PaymentScreen()),

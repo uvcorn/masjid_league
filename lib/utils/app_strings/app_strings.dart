@@ -14,7 +14,7 @@ class AppStrings {
       "Unlock professional pathways through football by showcasing your talent to top Saudi football scouts who attend our leagues.";
   static const String spectator = 'Spectator';
   static const String player = 'Player';
-  static const String manager = 'Manager';
+  static const String manager = 'MANAGER';
   static const String administrator = 'Administrator';
   static const String welcomeToMasjidLeague = 'WELCOME TO MASJID LEAGUE!';
   static const String joinAs = 'Join As';
@@ -173,6 +173,8 @@ class AppStrings {
   static const String youCanCreateMoreDivision =
       'You can create more divisions (age group, competition levels)';
   static const String division = 'Division';
+
+  static const String selectDivision = 'SelectDivision';
   static const String addAnotherDivision = 'Add Another Division';
   static const String addDay = 'Add Day';
   static const String add = 'Add';
@@ -236,20 +238,22 @@ class AppStrings {
   static const String paymentMessage =
       'Payment of monthly plan \$75.00 has paid successfully';
   static const String promotionSuccessful = 'Promotion successful';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
-  // static const String profile = 'Profile';
+  static const String noTeamsAddedYet = 'No teams added yet';
+  static const String addTeamsToThisDivision = 'add teams to this division';
+  static const String addATeam = 'Add a Team';
+  static const String referees = 'REFEREES';
+  static const String refereesTabContent = 'Referees Tab Content';
+  static const String managerTabContent = 'Manager Tab Content';
+  static const String division1 = 'Division 1';
+  static const String division2 = 'Division 2';
+  static const String andUseTheSchedulePage =
+      'And use the schedule page to assign';
+  static const String refereesToMatches = 'referees to matches.';
+  static const String addAReferee = 'Add a Referee';
+  static const String adminCanHelpYou =
+      'Administrators can help you manage this';
+  static const String tournament = 'tournament';
+  static const String addAnAdministrator = 'Add an Administrator';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

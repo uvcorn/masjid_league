@@ -1,7 +1,7 @@
 class AppIcons {
   static const String basePath = "assets/icons";
 
-  ///====================== authintication =========================
+  ///====================== authentication =========================
 
   static const String apple = "$basePath/apple.svg";
   static const String facebook = "$basePath/facebook.svg";
@@ -11,5 +11,8 @@ class AppIcons {
 
   ///====================== Inner =========================
   static const String bell = "$basePath/bell.svg";
+  static const String tShirt = "$basePath/t_shirt.svg";
+  static const String shirt = "$basePath/shirt.svg";
+  static const String tShirtYellow = "$basePath/t_shirt_yellow.svg";
   static const String formate = "$basePath/formate.png";
 }

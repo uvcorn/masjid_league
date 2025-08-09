@@ -50,7 +50,7 @@ class _TournamentScreenState extends State<TournamentScreen> {
               // Tournament Card
               GestureDetector(
                 onTap: () {
-                  Get.toNamed(AppRoutes.tournamentDetailsScreen);
+                  Get.toNamed(AppRoutes.tournamentDrawerMainScreen);
                 },
                 child: Container(
                   decoration: BoxDecoration(

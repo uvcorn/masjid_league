@@ -7,12 +7,14 @@ class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
   final bool selected;
+  final double fontSize;
 
   const CustomButton({
     super.key,
     required this.text,
     required this.onTap,
     this.selected = false,
+    this.fontSize = 20,
   });
 
   @override
@@ -33,7 +35,7 @@ class CustomButton extends StatelessWidget {
           style: TextStyle(
             color: selected ? Colors.white : fillColor,
             fontWeight: FontWeight.w600,
-            fontSize: 20.sp,
+            fontSize: fontSize.sp,
           ),
         ),
       ),
