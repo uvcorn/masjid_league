@@ -8,6 +8,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final bool selected;
   final double fontSize;
+  final Color fillColor;
 
   const CustomButton({
     super.key,
@@ -15,11 +16,11 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.selected = false,
     this.fontSize = 20,
+    this.fillColor = AppColors.secPrimary,
   });
 
   @override
   Widget build(BuildContext context) {
-    final fillColor = AppColors.secPrimary;
     return SizedBox(
       height: 48.h,
       width: double.infinity,

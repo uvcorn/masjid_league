@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../utils/app_colors/app_colors.dart';
+
 class CustomCheckbox extends StatefulWidget {
   final bool? showCheckbox;
   final bool? value;
@@ -14,6 +16,7 @@ class CustomCheckbox extends StatefulWidget {
   final bool useSpaceBetweenAlignment;
   final bool centerAlignment;
   final double checkboxLabelSpacing;
+  final Color? checkboxActiveColor;
 
   const CustomCheckbox({
     super.key,
@@ -28,6 +31,7 @@ class CustomCheckbox extends StatefulWidget {
     this.useSpaceBetweenAlignment = false,
     this.centerAlignment = false,
     this.checkboxLabelSpacing = 0.0,
+    this.checkboxActiveColor = AppColors.black,
   });
 
   @override
@@ -78,12 +82,12 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             children: [
               if (widget.showCheckbox ?? true)
                 Transform.translate(
-                  offset: const Offset(-8.0, 0.0),
+                  offset: Offset(-8.0, 0.0),
                   child: Checkbox(
                     value: _isChecked,
                     onChanged: (newValue) => _toggleCheck(),
-                    activeColor: Colors.black,
-                    checkColor: Colors.white,
+                    activeColor: widget.checkboxActiveColor,
+                    checkColor: AppColors.white,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ),

@@ -14,6 +14,9 @@ class AppConstants {
   static String rememberMe = "rememberMe";
   static var chatId = "chatID";
   static String isRememberMe = "isRememberMe";
+
+  static String qrCode =
+      "https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=SampleQR";
   static String footballLandscape2 =
       'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=829&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
   static String userNtr =
