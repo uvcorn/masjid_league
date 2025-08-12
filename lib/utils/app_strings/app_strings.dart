@@ -285,7 +285,7 @@ class AppStrings {
   static const String update = 'Update';
   static const String editAdministrators = 'Edit Administrators';
   static const String editTeam = 'Edit Team';
-  // static const String profile = 'Profile';
+  static const String players = 'Players';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';
   // static const String profile = 'Profile';

@@ -278,7 +278,7 @@ class TeamCard extends StatelessWidget {
 
             Divider(color: AppColors.mediumGray, thickness: 1.r, height: 32.h),
             CustomText(
-              text: "Players",
+              text: AppStrings.players,
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
               color: AppColors.black,
