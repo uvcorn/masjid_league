@@ -5,7 +5,7 @@ import '../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../utils/app_strings/app_strings.dart';
 import '../../../../components/custom_screen_header/custom_screen_header.dart';
 // Tabs
-import '../../../tournament_section/widgets/drawer_controller.dart';
+import '../../controller/drawer_controller.dart';
 import 'teams_tab.dart';
 import 'referees_tab.dart';
 import 'managers_tab.dart';

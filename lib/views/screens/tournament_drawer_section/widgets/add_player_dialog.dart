@@ -1,4 +1,3 @@
-// No major changes to AddPlayerDialog, but it now returns the player name.
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +9,7 @@ import '../../../components/custom_text/custom_text.dart';
 import '../../../components/image_preview_box/image_preview_box.dart';
 import '../../../components/image_utils/image_utils.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
+import '../models/team_model.dart';
 
 class AddPlayerDialog extends StatefulWidget {
   const AddPlayerDialog({super.key});
@@ -23,12 +23,10 @@ class _AddPlayerDialogState extends State<AddPlayerDialog> {
   final _nameCtrl = TextEditingController();
   final _bioCtrl = TextEditingController();
   final _emailCtrl = TextEditingController();
-  final _managerCtrl = TextEditingController();
-  final _managerContactCtrl = TextEditingController();
 
   Widget _buildLabeledTextField({
     required String label,
-    TextEditingController? controller,
+    required TextEditingController controller,
     TextInputType keyboardType = TextInputType.text,
   }) {
     return Column(
@@ -50,6 +48,14 @@ class _AddPlayerDialogState extends State<AddPlayerDialog> {
         SizedBox(height: 32.h),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _nameCtrl.dispose();
+    _bioCtrl.dispose();
+    _emailCtrl.dispose();
+    super.dispose();
   }
 
   @override
@@ -123,24 +129,7 @@ class _AddPlayerDialogState extends State<AddPlayerDialog> {
               _buildLabeledTextField(
                 label: AppStrings.email,
                 controller: _emailCtrl,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildLabeledTextField(
-                      label: AppStrings.teamManager,
-                      controller: _managerCtrl,
-                    ),
-                  ),
-                  SizedBox(width: 16.w),
-                  Expanded(
-                    child: _buildLabeledTextField(
-                      label: AppStrings.managerContact,
-                      controller: _managerContactCtrl,
-                      keyboardType: TextInputType.phone,
-                    ),
-                  ),
-                ],
+                keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 16.h),
               Row(
@@ -172,7 +161,17 @@ class _AddPlayerDialogState extends State<AddPlayerDialog> {
                   ElevatedButton(
                     onPressed: () {
                       final name = _nameCtrl.text.trim();
-                      Navigator.of(context).pop(name);
+                      if (name.isNotEmpty) {
+                        final player = Player(
+                          name: name,
+                          bio: _bioCtrl.text.trim(),
+                          email: _emailCtrl.text.trim(),
+                          photo: playerPhoto,
+                        );
+                        Navigator.of(context).pop(player);
+                      } else {
+                        Navigator.of(context).pop(null);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,

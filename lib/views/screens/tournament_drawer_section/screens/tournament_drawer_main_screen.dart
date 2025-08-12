@@ -5,7 +5,7 @@ import '../../../../utils/app_strings/app_strings.dart';
 import '../../../components/custom_drawer/custom_drawer.dart';
 import 'format_screen.dart';
 import 'general_screen.dart';
-import '../../tournament_section/widgets/drawer_controller.dart';
+import '../controller/drawer_controller.dart';
 import 'participants_screens/participants_screen.dart';
 import 'results_screen.dart';
 import 'schedule_screen.dart';

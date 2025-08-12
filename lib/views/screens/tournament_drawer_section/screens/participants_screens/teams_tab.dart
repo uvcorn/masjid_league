@@ -1,4 +1,5 @@
-import 'dart:io';
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,28 +8,10 @@ import '../../../../../utils/app_icons/app_icons.dart';
 import '../../../../../utils/app_strings/app_strings.dart';
 import '../../../../components/custom_button/custom_button.dart';
 import '../../../../components/custom_dropdown_menu/custom_dropdown_menu.dart';
-import '../../../../components/custom_image/custom_image.dart';
 import '../../../../components/custom_text/custom_text.dart';
+import '../../models/team_model.dart';
+import '../../../../components/custom_image/custom_image.dart';
 import '../../widgets/add_team_dialog.dart';
-
-// Team data model to hold all the team information
-class Team {
-  String teamName;
-  File? teamLogo;
-  String email;
-  String teamManager;
-  String managerContact;
-  List<String> players;
-
-  Team({
-    required this.teamName,
-    this.teamLogo,
-    required this.email,
-    required this.teamManager,
-    required this.managerContact,
-    required this.players,
-  });
-}
 
 class TeamsTab extends StatefulWidget {
   const TeamsTab({super.key});
@@ -40,6 +23,7 @@ class TeamsTab extends StatefulWidget {
 class _TeamsTabState extends State<TeamsTab> {
   String? selectedDivision;
   final List<Team> _teams = [];
+
   void _showAddEditTeamDialog({Team? teamToEdit, int? index}) async {
     final result = await showDialog<Team?>(
       context: context,
@@ -49,17 +33,14 @@ class _TeamsTabState extends State<TeamsTab> {
     if (result != null) {
       setState(() {
         if (index != null) {
-          // Edit existing team
           _teams[index] = result;
         } else {
-          // Add new team
           _teams.add(result);
         }
       });
     }
   }
 
-  // Function to delete a team
   void _deleteTeam(int index) {
     setState(() {
       _teams.removeAt(index);
@@ -92,7 +73,6 @@ class _TeamsTabState extends State<TeamsTab> {
             ),
           ),
           SizedBox(height: 16.h),
-          // Conditionally render the team list or the "no teams" message
           if (_teams.isEmpty)
             Center(
               child: Column(
@@ -120,111 +100,197 @@ class _TeamsTabState extends State<TeamsTab> {
               ),
             )
           else
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.primary, width: 1.5.r),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
+            Expanded(
               child: ListView.builder(
                 itemCount: _teams.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final team = _teams[index];
-                  return Column(
-                    children: [
-                      Card(
-                        margin: EdgeInsets.symmetric(vertical: 8.h),
-                        elevation:
-                            0, // Remove the shadow by setting elevation to 0
-                        color: AppColors.white,
-                        child: Padding(
-                          padding: EdgeInsets.all(16.r),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  // If the team has a logo, show it, else show the default icon
-                                  if (team.teamLogo != null)
-                                    ClipOval(
-                                      child: Image.file(
-                                        team.teamLogo!,
-                                        width: 40.r,
-                                        height: 40.r,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    )
-                                  else
-                                    Icon(
-                                      Icons.image,
-                                      size: 40.r,
-                                    ), // Default team icon
-                                  SizedBox(width: 16.w),
-                                  Expanded(
-                                    child: CustomText(
-                                      text: team.teamName,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.edit,
-                                      color: AppColors.black,
-                                    ),
-                                    onPressed: () => _showAddEditTeamDialog(
-                                      teamToEdit: team,
-                                      index: index,
-                                    ),
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(
-                                      Icons.delete,
-                                      color: Colors.red,
-                                    ),
-                                    onPressed: () => _deleteTeam(index),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 8.h),
-                              CustomText(text: 'Manager: ${team.teamManager}'),
-                              CustomText(
-                                text: 'Contact: ${team.managerContact}',
-                              ),
-                              CustomText(text: 'Email: ${team.email}'),
-                              SizedBox(height: 8.h),
-                              CustomText(
-                                text: 'Players: ${team.players.join(', ')}',
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      // Add divider only between cards, not after the last card
-                      if (index < _teams.length - 1)
-                        Divider(
-                          color: AppColors
-                              .primary, // Use primary color for the divider
-                          thickness: 1,
-                          indent: 16.w,
-                          endIndent: 16.w,
-                        ),
-                    ],
+                  return TeamCard(
+                    team: team,
+                    onEditTeam: () =>
+                        _showAddEditTeamDialog(teamToEdit: team, index: index),
+                    onDeleteTeam: () => _deleteTeam(index),
                   );
                 },
               ),
             ),
-          SizedBox(height: 24.h),
-          if (_teams.isNotEmpty)
-            SizedBox(
-              width: double.infinity,
-              child: CustomButton(
-                onTap: () => _showAddEditTeamDialog(),
-                text: AppStrings.addATeam,
-                fontSize: 16,
-              ),
-            ),
         ],
+      ),
+    );
+  }
+}
+
+class TeamCard extends StatelessWidget {
+  final Team team;
+  final VoidCallback onEditTeam;
+  final VoidCallback onDeleteTeam;
+
+  const TeamCard({
+    super.key,
+    required this.team,
+    required this.onEditTeam,
+    required this.onDeleteTeam,
+  });
+
+  Widget _buildPlayerPill(Player player) {
+    return Container(
+      margin: EdgeInsets.only(right: 8.w, bottom: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(6.r),
+      //   border: Border.all(color: AppColors.primary),
+      // ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          player.photo != null
+              ? ClipOval(
+                  child: CustomImage(
+                    imageFile: player.photo,
+                    size: 32.r,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              : Icon(Icons.person, size: 32.r, color: AppColors.mediumGray),
+          SizedBox(width: 8.w),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(
+                text: player.name,
+                fontSize: 16,
+                textAlign: TextAlign.left,
+              ),
+              CustomText(
+                text: player.email,
+                fontSize: 12,
+                textAlign: TextAlign.left,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final managerPhoto =
+        team.players.isNotEmpty && team.players.first.photo != null
+        ? team.players.first.photo
+        : null;
+
+    return Container(
+      margin: EdgeInsets.only(bottom: 16.h),
+      // ,decoration: BoxDecoration(
+      //             color: AppColors.white,
+      //             borderRadius: BorderRadius.circular(8),
+      //           ),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: AppColors.primary),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(16.r),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                ClipOval(
+                  child: team.teamLogo != null
+                      ? CustomImage(
+                          imageFile: team.teamLogo,
+                          size: 40.r,
+                          fit: BoxFit.cover,
+                        )
+                      : Icon(Icons.image, size: 40.r),
+                ),
+                SizedBox(width: 16.w),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                        text: team.teamName,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      CustomText(
+                        text: team.email,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.edit, size: 20.r, color: AppColors.black),
+                  onPressed: onEditTeam,
+                ),
+                IconButton(
+                  icon: Icon(Icons.delete, size: 20.r, color: AppColors.black),
+                  onPressed: onDeleteTeam,
+                ),
+              ],
+            ),
+            Divider(color: AppColors.primary, thickness: 1.r, height: 32.h),
+            CustomText(
+              text: "Manager",
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+            SizedBox(height: 8.h),
+            Row(
+              children: [
+                managerPhoto != null
+                    ? ClipOval(
+                        child: CustomImage(
+                          imageFile: managerPhoto,
+                          size: 32.r,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : Icon(
+                        Icons.person,
+                        size: 32.r,
+                        color: AppColors.mediumGray,
+                      ),
+                SizedBox(width: 8.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(
+                      text: "Name: ${team.teamManager}",
+                      fontSize: 16.sp,
+                    ),
+                    CustomText(
+                      text: "Contact: ${team.managerContact}",
+                      fontSize: 12.sp,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+
+            Divider(color: AppColors.mediumGray, thickness: 1.r, height: 32.h),
+            CustomText(
+              text: "Players",
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+            SizedBox(height: 8.h),
+            Wrap(
+              children: team.players
+                  .map((player) => _buildPlayerPill(player))
+                  .toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

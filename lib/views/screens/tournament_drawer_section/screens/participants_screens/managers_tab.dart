@@ -94,9 +94,8 @@ class _ManagersTabState extends State<ManagersTab> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // Avatar with a default icon if no image is available
                         CircleAvatar(
-                          radius: 32.r,
+                          radius: 16.r,
                           backgroundImage:
                               admin['photo'] != null &&
                                   admin['photo']!.isNotEmpty
@@ -118,6 +117,7 @@ class _ManagersTabState extends State<ManagersTab> {
                         // Name and subtitle
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             CustomText(
                               text: admin['name'] ?? '',

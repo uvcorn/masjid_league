@@ -15,4 +15,5 @@ class AppIcons {
   static const String shirt = "$basePath/shirt.svg";
   static const String tShirtYellow = "$basePath/t_shirt_yellow.svg";
   static const String formate = "$basePath/formate.png";
+  static const String selectedFormate = "$basePath/selected_formate.svg";
 }

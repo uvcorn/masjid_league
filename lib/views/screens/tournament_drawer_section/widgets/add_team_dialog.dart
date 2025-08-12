@@ -9,7 +9,7 @@ import '../../../components/custom_text/custom_text.dart';
 import '../../../components/image_preview_box/image_preview_box.dart';
 import '../../../components/image_utils/image_utils.dart';
 import '../../../components/custom_network_image/custom_network_image.dart';
-import '../screens/participants_screens/teams_tab.dart';
+import '../models/team_model.dart';
 import 'add_player_dialog.dart';
 
 class AddTeamDialog extends StatefulWidget {
@@ -22,9 +22,10 @@ class AddTeamDialog extends StatefulWidget {
 
 class _AddTeamDialogState extends State<AddTeamDialog> {
   File? teamLogo;
-  final List<String> _players = [];
+  final List<Player> _players = []; // Changed to List<Player>
 
   final _teamNameCtrl = TextEditingController();
+  final _teamTypeCtrl = TextEditingController(); // New controller for teamType
   final _emailCtrl = TextEditingController();
   final _managerCtrl = TextEditingController();
   final _managerContactCtrl = TextEditingController();
@@ -69,7 +70,8 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
     );
   }
 
-  Widget _playerPill(String name, int index) {
+  Widget _playerPill(Player player, int index) {
+    // Changed to accept Player object
     return Container(
       margin: EdgeInsets.only(right: 8.w, bottom: 8.h),
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
@@ -80,7 +82,11 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CustomText(text: name, fontSize: 12, textAlign: TextAlign.left),
+          CustomText(
+            text: player.name, // Display player's name
+            fontSize: 12,
+            textAlign: TextAlign.left,
+          ),
           SizedBox(width: 8.w),
           GestureDetector(
             onTap: () => setState(() => _players.removeAt(index)),
@@ -89,6 +95,16 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _teamNameCtrl.dispose();
+    _teamTypeCtrl.dispose();
+    _emailCtrl.dispose();
+    _managerCtrl.dispose();
+    _managerContactCtrl.dispose();
+    super.dispose();
   }
 
   @override
@@ -116,6 +132,11 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
                 label: AppStrings.teamName,
                 controller: _teamNameCtrl,
               ),
+              // New field for team type
+              // _buildLabeledTextField(
+              //   label: 'Team Type',
+              //   controller: _teamTypeCtrl,
+              // ),
               // Team Logo Picker
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,6 +182,7 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
               _buildLabeledTextField(
                 label: AppStrings.email,
                 controller: _emailCtrl,
+                keyboardType: TextInputType.emailAddress,
               ),
               Row(
                 children: [
@@ -180,6 +202,7 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
                   ),
                 ],
               ),
+              // Player section
               if (_players.isNotEmpty) ...[
                 Wrap(
                   children: List.generate(
@@ -194,12 +217,13 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
                 width: 160.w,
                 child: InkWell(
                   onTap: () async {
-                    final name = await showDialog<String>(
+                    final newPlayer = await showDialog<Player>(
+                      // Await a Player object
                       context: context,
                       builder: (_) => const AddPlayerDialog(),
                     );
-                    if (name != null && name.trim().isNotEmpty) {
-                      setState(() => _players.add(name.trim()));
+                    if (newPlayer != null) {
+                      setState(() => _players.add(newPlayer));
                     }
                   },
                   child: Container(
@@ -252,7 +276,7 @@ class _AddTeamDialogState extends State<AddTeamDialog> {
                         email: _emailCtrl.text,
                         teamManager: _managerCtrl.text,
                         managerContact: _managerContactCtrl.text,
-                        players: _players,
+                        players: _players, // This is now a List<Player>
                       );
                       Navigator.of(context).pop(newTeam);
                     },

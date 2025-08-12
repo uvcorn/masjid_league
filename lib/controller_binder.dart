@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import 'views/components/bottom_nav_bar/bottom_nav_controller.dart';
-import 'views/screens/tournament_section/widgets/drawer_controller.dart';
+import 'views/screens/tournament_drawer_section/controller/drawer_controller.dart';
 
 class ControllerBinder extends Bindings {
   @override
