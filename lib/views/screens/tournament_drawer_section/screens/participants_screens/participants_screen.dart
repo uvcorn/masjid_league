@@ -4,10 +4,9 @@ import 'package:get/get.dart';
 import '../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../utils/app_strings/app_strings.dart';
 import '../../../../components/custom_screen_header/custom_screen_header.dart';
-// Tabs
+
 import '../../controller/drawer_controller.dart';
 import 'teams_tab.dart';
-import 'referees_tab.dart';
 import 'managers_tab.dart';
 
 class ParticipantsScreen extends StatefulWidget {
@@ -25,7 +24,8 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    // TabController length is correctly set to 2.
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -52,7 +52,6 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
               ),
             ),
             SizedBox(height: 16.h),
-
             TabBar(
               controller: _tabController,
               labelColor: AppColors.primary,
@@ -64,19 +63,19 @@ class _ParticipantsScreenState extends State<ParticipantsScreen>
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
               ),
+              // The tabs list contains only 2 tabs.
               tabs: const [
                 Tab(text: AppStrings.teams),
-                Tab(text: AppStrings.referees),
                 Tab(text: AppStrings.manager),
               ],
             ),
             Divider(color: AppColors.lightGray, height: 1.h, thickness: 1.w),
             SizedBox(height: 16.h),
-
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: const [TeamsTab(), RefereesTab(), ManagersTab()],
+                // The children list contains exactly 2 widgets.
+                children: const [TeamsTab(), ManagersTab()],
               ),
             ),
           ],
